@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Privacy Policy | Britium Ventures</title>
+  <meta name="description" content="How Britium Ventures collects, uses, and protects your personal data, plus your rights and how to contact us for privacy matters."/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy | Britium Ventures"/>
+  <meta property="og:description" content="Your data rights and how we protect your information."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.britiumventures.com/privacy.html"/>
+  <meta property="og:image" content="https://www.britiumventures.com/assets/og/og-privacy.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Privacy Policy | Britium Ventures"/>
+  <meta name="twitter:description" content="Transparency about data collection, use, and retention."/>
+
+  <meta name="theme-color" content="#0a192f"/>
+
+  <!-- Fonts + Tailwind + Global CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-row container" style="max-width:1200px">
+      <a href="index.html" class="brand">Britium <span>Ventures</span></a>
+      <nav class="main-nav">
+        <a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="solutions.html">Solutions</a>
+        <a href="products.html">Products</a><a href="markets.html">Markets</a><a href="team.html">Team</a>
+        <a href="gallery.html">Gallery</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="chat.html">AI Chat</a>
+      </nav>
+      <button id="mobile-menu-button" class="mobile-btn" aria-label="Open menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mpanel">
+      <button class="mclose" aria-label="Close menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <nav class="mnav">
+        <a href="about.html">About</a><a href="capabilities.html">Capabilities</a><a href="solutions.html">Solutions</a>
+        <a href="products.html">Products</a><a href="markets.html">Markets</a><a href="team.html">Team</a>
+        <a href="gallery.html">Gallery</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="chat.html">AI Chat</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="section">
+    <div class="container" style="max-width:900px">
+      <h1 class="text-3xl md:text-4xl font-bold mb-6">Privacy Policy</h1>
+      <p class="text-slate-300 mb-4">We respect your privacy. This policy explains what information we collect, how we use it, and your choices.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-3">Information We Collect</h2>
+      <ul class="list-disc pl-6 text-slate-300 space-y-1">
+        <li>Contact details you provide (e.g., name, email, phone)</li>
+        <li>Files you choose to attach in forms</li>
+        <li>Basic analytics (e.g., page views) to improve our services</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-3">How We Use Information</h2>
+      <ul class="list-disc pl-6 text-slate-300 space-y-1">
+        <li>To respond to inquiries and provide quotations</li>
+        <li>To improve our products and services</li>
+        <li>To comply with legal obligations</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-3">Sharing & Retention</h2>
+      <p class="text-slate-300">We do not sell your data. We may share it with service providers bound by confidentiality, or when required by law. We retain data only as long as needed for the purposes above.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-3">Your Rights</h2>
+      <p class="text-slate-300">You may request access, correction, or deletion of your personal data by contacting us at <a href="mailto:info@britiumventures.com" class="text-amber-400">info@britiumventures.com</a>.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-3">Updates</h2>
+      <p class="text-slate-300">We may update this policy from time to time. The latest version will always be available on this page.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container py-10 text-center">
+      <p class="text-sm">&copy; <span id="bvYear"></span> Britium Ventures. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Common JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>

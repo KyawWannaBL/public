@@ -1,0 +1,8 @@
+curl -X POST 'https://your-vercel-project-url.vercel.app/api/add-job' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer YOUR_SECRET_KEY" \
+-d '{
+  "title": "Logistics Coordinator",
+  "location": "Yangon",
+  "type": "Full-time"
+}'

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products | BRITIUM VENTURES</title>
+  <meta name="description" content="Explore Britium Ventures' curated portfolio: fashion bags, dual screens, flexitanks, and branded gifts."/>
+  <meta name="theme-color" content="#020617"/>
+  <link rel="icon" href="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #020617; color: #e2e8f0; font-family: 'Poppins', sans-serif; }
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .glass { background: rgba(11,21,39,0.65); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+    .hero-video { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-overlay { background: rgba(10,25,47,.55); position: absolute; inset: 0; z-index: 1; }
+    .hero-content { z-index: 2; position: relative; }
+    .text-justify { text-align: justify; }
+    .spinner { border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #FFC700; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+<!-- HEADER -->
+<header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+      <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+      <a href="about.html" class="hover:text-[#FFC700]">About</a>
+      <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+      <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+      <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+      <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+      <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+      <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+      <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+      <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+      <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+    </nav>
+    <button id="mobile-toggle" class="md:hidden text-white text-3xl" aria-label="Toggle Menu">☰</button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
+  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
+    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white mobile-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="products.html">Products</a>
+      <a href="markets.html">Markets</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">AI Chat</a>
+    </div>
+  </nav>
+</div>
+
+
+<!-- Hero -->
+<section class="relative h-[60vh] flex items-center justify-center text-center overflow-hidden">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://cdn1.site-media.eu/images/0/19098157/souvenirset-xjSXUa2AGIj6cQFlj3RDKQ.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content px-6">
+    <h1 class="text-5xl font-garamond font-bold text-white">Our <span class="text-[#FFC700]">Products</span></h1>
+    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-300">From lifestyle and technology to transport and corporate solutions, explore our curated offerings.</p>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="py-20 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+  <a href="fashion_bags.html" class="glass p-6 rounded-xl hover:shadow-2xl hover:-translate-y-2 transition">
+    <img src="https://cdn1.site-media.eu/images/0/19097393/40-s2coCKilqJ0_9jU0STnhwg.png" class="w-full h-48 object-cover rounded-lg" alt="Fashion Bags">
+    <h3 class="mt-4 text-white text-xl font-semibold">Fashion Bags</h3>
+    <p class="text-sm mt-2 text-justify">Elegant executive totes and handbags crafted for professionals and events.</p>
+  </a>
+  <a href="dual_screen_extender.html" class="glass p-6 rounded-xl hover:shadow-2xl hover:-translate-y-2 transition">
+    <img src="https://cdn1.site-media.eu/images/0/19098380/Writeaboutlaptopscreenextender-G4j3Uhd9BGOvOl1hTu5abQ.jpg" class="w-full h-48 object-cover rounded-lg" alt="Dual Screen Extender">
+    <h3 class="mt-4 text-white text-xl font-semibold">Dual Screen Extender</h3>
+    <p class="text-sm mt-2 text-justify">Triple-display productivity booster for remote professionals and tech-savvy workers.</p>
+  </a>
+  <a href="flexitank.html" class="glass p-6 rounded-xl hover:shadow-2xl hover:-translate-y-2 transition">
+    <img src="https://cdn1.site-media.eu/images/0/19084610/flexitank-view-through-1-6gDpogFbDeNyOJK_tyuvog.jpg" class="w-full h-48 object-cover rounded-lg" alt="Flexitanks">
+    <h3 class="mt-4 text-white text-xl font-semibold">Flexitanks</h3>
+    <p class="text-sm mt-2 text-justify">High-volume, certified flexitank transport solutions (12k–24k L capacity).</p>
+  </a>
+  <a href="promotion_gift.html" class="glass p-6 rounded-xl hover:shadow-2xl hover:-translate-y-2 transition">
+    <img src="https://cdn1.site-media.eu/images/0/19097413/34-xGzFTSIduS1KFNfO64o9Sw.jpg" class="w-full h-48 object-cover rounded-lg" alt="Promotional Gifts">
+    <h3 class="mt-4 text-white text-xl font-semibold">Promotional Gifts</h3>
+    <p class="text-sm mt-2 text-justify">Branded items for conferences, clients, and internal engagement campaigns.</p>
+  </a>
+</section>
+
+<!-- AI Assistant -->
+<section id="ai-assistant" class="py-24 bg-slate-900/50 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl font-garamond font-bold text-white">✨ AI <span class="text-[#FFC700]">Product Assistant</span></h2>
+    <p class="mt-4 text-slate-300">Ask about our offerings — powered by OpenAI's GPT-3.5.</p>
+    <div class="glass rounded-xl p-6 mt-10 text-left">
+      <div id="ai-chat-window" class="h-64 overflow-y-auto space-y-3 p-3 text-sm">
+        <div class="p-3 rounded-md bg-slate-700/50">Hi! Ask me anything about Britium products.</div>
+      </div>
+      <div class="flex mt-4 gap-2">
+        <input id="ai-chat-input" class="flex-1 px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white" placeholder="e.g., What is a flexitank used for?" />
+        <button id="ai-chat-send" class="px-5 py-2 rounded-lg bg-[#FFC700] text-black font-semibold hover:bg-yellow-500">Send</button>
+      </div>
+    </div>
+    <div id="ai-spinner" class="mt-4 hidden justify-center"><div class="spinner"></div></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-slate-950/50 text-slate-400 border-t border-slate-800 text-sm">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <h4 class="font-garamond text-lg font-bold text-white">BRITIUM <span class="text-[#FFC700]">VENTURES</span></h4>
+      <p class="mt-2">Confidence in Motion.</p>
+    </div>
+    <div>
+      <h5 class="font-semibold text-white uppercase mb-2">Contact Us</h5>
+      <p>Yangon, Myanmar</p>
+      <a href="mailto:info@britiumventures.com" class="hover:text-[#FFC700] block">info@britiumventures.com</a>
+      <a href="tel:+95989747711" class="hover:text-[#FFC700] block">+95-9-89747711</a>
+    </div>
+    <div>
+      <h5 class="font-semibold text-white uppercase mb-2">Follow Us</h5>
+      <div class="flex space-x-4">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" class="w-5 h-5" alt="LinkedIn" /></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" class="w-5 h-5" alt="Facebook" /></a>
+      </div>
+    </div>
+    <div>
+      <h5 class="font-semibold text-white uppercase mb-2">Legal</h5>
+      <a href="#" class="block hover:text-[#FFC700]">Privacy Policy</a>
+      <a href="#" class="block hover:text-[#FFC700]">Terms of Service</a>
+    </div>
+  </div>
+  <div class="mt-6 text-center text-xs">&copy; <span id="yr"></span> BRITIUM VENTURES CO., LTD. All rights reserved.</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const chatWindow = document.getElementById('ai-chat-window');
+  const chatInput = document.getElementById('ai-chat-input');
+  const chatSend = document.getElementById('ai-chat-send');
+  const spinner = document.getElementById('ai-spinner');
+
+  const addMessage = (text, isUser = false) => {
+    const div = document.createElement('div');
+    div.className = `p-3 rounded-md ${isUser ? 'bg-[#FFC700] text-black ml-auto' : 'bg-slate-700/50'}`;
+    div.textContent = text;
+    chatWindow.appendChild(div);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  };
+
+  chatSend.addEventListener('click', async () => {
+    const input = chatInput.value.trim();
+    if (!input) return;
+    addMessage(input, true);
+    chatInput.value = '';
+    spinner.classList.remove('hidden');
+
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": "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", // Replace with your actual key
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [
+            { role: "system", content: "You are a product expert at Britium Ventures." },
+            { role: "user", content: input }
+          ],
+          temperature: 0.7
+        })
+      });
+      const data = await response.json();
+      const reply = data.choices?.[0]?.message?.content || "⚠️ AI didn't respond.";
+      addMessage(reply);
+    } catch (err) {
+      console.error(err);
+      addMessage("⚠️ Unable to reach AI. Please try again.");
+    } finally {
+      spinner.classList.add('hidden');
+    }
+  });
+
+  chatInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') chatSend.click();
+  });
+});
+  // Mobile menu toggle
+  const toggleBtn = document.getElementById("mobile-toggle");
+  const menuContainer = document.getElementById("mobile-menu-container");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-menu-overlay");
+
+  toggleBtn.addEventListener("click", () => {
+    menuContainer.classList.remove("hidden");
+    setTimeout(() => {
+      menu.classList.remove("translate-x-full");
+    }, 10);
+  });
+
+  overlay.addEventListener("click", () => {
+    menu.classList.add("translate-x-full");
+    setTimeout(() => {
+      menuContainer.classList.add("hidden");
+    }, 300);
+  });
+
+  // Optional: close menu when clicking any link inside
+  document.querySelectorAll(".mobile-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.add("translate-x-full");
+      setTimeout(() => {
+        menuContainer.classList.add("hidden");
+      }, 300);
+    });
+  });
+</script>
+</body>
+</html>

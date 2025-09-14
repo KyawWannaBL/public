@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexitanks — BRITIUM VENTURES</title>
+  <meta name="description" content="Certified Flexitank solutions for safe, efficient bulk liquid transport of oils, juices, and industrial fluids." />
+  <meta name="theme-color" content="#020617" />
+  <link rel="icon" href="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" />
+
+  <!-- Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles -->
+  <style>
+    body {
+      background-color: #020617;
+      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+    .font-garamond {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .glass {
+      background: rgba(11, 21, 39, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 25, 47, 0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 4px solid #FFC700;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+<div id="particles-js"></div>
+
+<!-- HEADER -->
+<header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+      <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+      <a href="about.html" class="hover:text-[#FFC700]">About</a>
+      <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+      <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+      <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+      <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+      <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+      <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+      <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+      <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+      <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+    </nav>
+    <button id="mobile-toggle" class="md:hidden text-white text-3xl" aria-label="Toggle Menu">☰</button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
+  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
+    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white mobile-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="products.html">Products</a>
+      <a href="markets.html">Markets</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">AI Chat</a>
+    </div>
+  </nav>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="relative h-[55vh] flex items-center justify-center text-center overflow-hidden">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="https://cdn1.site-media.eu/images/0/19098154/OTKI9888-pvjSLcgJ8pJUDRce0_SRdA.MP4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="font-garamond text-white text-5xl font-bold">Bulk Liquid <span class="text-[#FFC700]">Flexitanks</span></h1>
+      <p class="mt-3 max-w-2xl">Safe, certified, and cost-effective transport for edible oils, juices, and industrial fluids.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-20 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="glass p-8 rounded-xl">
+        <h3 class="text-xl font-bold text-white">Technical Specs</h3>
+        <p class="mt-2">Capacity from 12,000 to 24,000 Liters. Multi-layer LLDPE with woven PP reinforcement.</p>
+      </div>
+      <div class="glass p-8 rounded-xl">
+        <h3 class="text-xl font-bold text-white">Certifications</h3>
+        <p class="mt-2">FDA approved, ISO 9001/14001 certified, rail impact tested, and insured up to USD 5M.</p>
+      </div>
+      <div class="glass p-8 rounded-xl">
+        <h3 class="text-xl font-bold text-white">Versatile Applications</h3>
+        <p class="mt-2">Ideal for food-grade liquids, non-hazardous chemicals, water, and agricultural extracts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI LOGISTICS ASSISTANT -->
+  <section class="py-20 bg-slate-900/50" id="ai-logistics-assistant">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-garamond text-4xl font-bold text-white">✨ AI <span class="text-[#FFC700]">Bulk Liquid Assistant</span></h2>
+      <p class="mt-4 text-slate-300">Have a technical question? Ask our Gemini-powered assistant about shipping requirements.</p>
+      <div class="glass p-8 rounded-xl mt-12 text-left">
+        <label for="liquid-type" class="block text-sm font-medium text-white mb-2">What type of non-hazardous liquid are you shipping?</label>
+        <input type="text" id="liquid-type" class="w-full bg-slate-800 border border-slate-700 rounded-md p-2 text-white" placeholder="e.g., Palm oil, juice concentrate..." />
+        <div class="mt-6 text-center">
+          <button id="get-info-btn" class="px-8 py-3 rounded-lg font-bold bg-[#FFC700] text-slate-950 hover:bg-yellow-500 transition-colors">Get Shipping Info</button>
+        </div>
+        <div id="shipping-info" class="mt-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 text-center">
+    <h3 class="font-garamond text-3xl md:text-4xl font-bold text-white">Inquire About Bulk Liquid Transport</h3>
+    <div class="mt-5 flex flex-wrap justify-center gap-3">
+      <a href="tel:+95989747711" class="px-6 py-3 rounded-lg font-bold bg-[#FFC700] text-slate-950 hover:bg-yellow-500 transition-colors">Call Us</a>
+      <a href="products.html" class="px-6 py-3 rounded-lg font-bold bg-transparent border border-[#FFC700] text-[#FFC700] hover:bg-[#FFC700]/10 transition-colors">Back to Products</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="py-12 bg-slate-950/50 text-slate-400 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p>&copy; <span id="yr"></span> BRITIUM VENTURES CO., LTD. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $ = sel => document.querySelector(sel);
+    $('#yr').textContent = new Date().getFullYear();
+
+    if ($('#particles-js')) {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 40 },
+          color: { value: "#ffffff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.2, random: true },
+          size: { value: 2.5, random: true },
+          line_linked: { enable: false },
+          move: { enable: true, speed: 1.5, direction: "none", random: true, out_mode: "out" }
+        },
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: false } } }
+      });
+    }
+
+    const getInfoBtn = $('#get-info-btn');
+    const infoContainer = $('#shipping-info');
+
+    getInfoBtn.addEventListener('click', async () => {
+      const liquid = $('#liquid-type').value.trim();
+      if (!liquid) return;
+
+      infoContainer.innerHTML = `<div class="flex justify-center mt-4"><div class="spinner"></div></div>`;
+
+      const systemPrompt = `You are a logistics assistant at Britium Ventures. The user provides a non-hazardous liquid. Respond with expert shipping advice: temperature, documentation, handling, compatibility, etc.`;
+
+      const userPrompt = `What are the key shipping considerations for transporting "${liquid}" in a flexitank?`;
+
+      const apiKey = "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"; // 🔑 Replace with your real key
+
+      try {
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${apiKey}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+              { role: "system", content: systemPrompt },
+              { role: "user", content: userPrompt }
+            ],
+            temperature: 0.7
+          })
+        });
+
+        const data = await res.json();
+        const reply = data.choices?.[0]?.message?.content || "⚠️ No response from AI.";
+
+        infoContainer.innerHTML = `<div class="glass p-6 rounded-lg mt-4 text-white text-justify"><p>${reply.replace(/\n/g, "<br/>")}</p></div>`;
+      } catch (err) {
+        console.error(err);
+        infoContainer.innerHTML = `<p class="text-red-400 mt-4">⚠️ Unable to fetch AI response.</p>`;
+      }
+    });
+  });
+  // Mobile menu toggle
+  const toggleBtn = document.getElementById("mobile-toggle");
+  const menuContainer = document.getElementById("mobile-menu-container");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-menu-overlay");
+
+  toggleBtn.addEventListener("click", () => {
+    menuContainer.classList.remove("hidden");
+    setTimeout(() => {
+      menu.classList.remove("translate-x-full");
+    }, 10);
+  });
+
+  overlay.addEventListener("click", () => {
+    menu.classList.add("translate-x-full");
+    setTimeout(() => {
+      menuContainer.classList.add("hidden");
+    }, 300);
+  });
+
+  // Optional: close menu when clicking any link inside
+  document.querySelectorAll(".mobile-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.add("translate-x-full");
+      setTimeout(() => {
+        menuContainer.classList.add("hidden");
+      }, 300);
+    });
+  });
+</script>
+</body>
+</html>

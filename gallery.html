@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gallery | BRITIUM VENTURES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--bg:#020617;--glass:#0b1527cc;--accent:#22d3ee;--accent2:#06b6d4;--text:#9fb0c7;--white:#e7eef8}
+    body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
+    .cormorant{font-family:'Cormorant Garamond',serif}
+    .neon{color:var(--accent)}
+    .glass{background:var(--glass);backdrop-filter:blur(12px)}
+    .btn-primary{background:var(--accent);color:#051027;padding:.7rem 1.2rem;border-radius:.65rem;font-weight:700}
+    .btn-primary:hover{background:var(--accent2)}
+    .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .card img{border-radius:.5rem;box-shadow:0 4px 15px rgba(0,0,0,.4);cursor:pointer;transition:transform .2s}
+    .card img:hover{transform:scale(1.03)}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal img{max-width:90%;max-height:90%;border-radius:.75rem}
+    .modal:target{display:flex}
+    .music-btn{position:absolute;bottom:1rem;right:1rem;z-index:3;background:var(--accent);color:#051027;font-weight:700;padding:.5rem .9rem;border-radius:.5rem;cursor:pointer}
+    .music-btn:hover{background:var(--accent2)}
+  </style>
+</head>
+<body>
+<header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+  <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+  <a href="about.html" class="hover:text-[#FFC700]">About</a>
+  <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+  <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+  <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+  <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+  <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+  <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+  <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+  <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+  <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+</nav>
+  </div>
+</header>
+<!-- MOBILE MENU -->
+<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
+  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
+    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="products.html">Products</a>
+      <a href="markets.html">Markets</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">AI Chat</a>
+    </div>
+  </nav>
+</div>
+  <main class="pt-28 md:pt-32">
+    <!-- Hero -->
+    <section class="relative text-center">
+      <video autoplay muted loop playsinline class="w-full h-[55vh] object-cover">
+        <source src="https://cdn1.site-media.eu/images/0/19104490/1-IPewYZ0V36qgjQSKHKGFEw.mp4" type="video/mp4">
+      </video>
+      <button id="musicBtn" class="music-btn">🔊 Play Music</button>
+      <audio id="heroMusic" loop><source src="your-music-file.mp3" type="audio/mpeg"></audio>
+      <h1 class="cormorant text-white text-5xl md:text-6xl font-bold mt-6">Our <span class="neon">Gallery</span></h1>
+      <p class="mt-3 max-w-3xl mx-auto">Snapshots from operations, flexitank deployments, branded gifts, events, and our team in action.</p>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-14 max-w-7xl mx-auto px-6">
+      <h2 class="cormorant text-3xl md:text-5xl text-white text-center mb-10">Featured <span class="neon">Highlights</span></h2>
+      <div class="grid-4">
+        <!-- loop through all images -->
+        <a href="#img1" class="card"><img src="https://cdn1.site-media.eu/images/0/19103946/ChatGPTImageJun29202503_32_41PM-Recovered-RH1qR-LmJFPwVUUuu6RlAA.png"></a>
+        <a href="#img2" class="card"><img src="https://cdn1.site-media.eu/images/0/19103943/ChatGPTImageJun29202512_30_06AMcopy-eYHE1h5c-tdg8oirSb-dAQ.png"></a>
+        <a href="#img3" class="card"><img src="https://cdn1.site-media.eu/images/0/19103923/12-AUfqxYULdYCUNusZE2WCgQ.png"></a>
+        <a href="#img4" class="card"><img src="https://cdn1.site-media.eu/images/0/19103914/16-1dmdoAayx1khRTpYQShX1A.png"></a>
+        <a href="#img5" class="card"><img src="https://cdn1.site-media.eu/images/0/19103903/17-qvECZ3ml-Zwba0GN5UElaA.png"></a>
+        <a href="#img6" class="card"><img src="https://cdn1.site-media.eu/images/0/19103898/19-Mp7nb6Q16Ec77pHBVtDkuA.png"></a>
+        <a href="#img7" class="card"><img src="https://cdn1.site-media.eu/images/0/19103888/21-laF34PszHZwtDf79HeZcaQ.png"></a>
+        <a href="#img8" class="card"><img src="https://cdn1.site-media.eu/images/0/19103886/24-4WzS8h-zQxti1hM27v5erQ.png"></a>
+        <a href="#img9" class="card"><img src="https://cdn1.site-media.eu/images/0/19103883/25-1mAKBATYhRTSQSh3aQRr9Q.png"></a>
+        <a href="#img10" class="card"><img src="https://cdn1.site-media.eu/images/0/19103880/26-xrnK5mWFsaxOZWTTCzDulA.png"></a>
+        <a href="#img11" class="card"><img src="https://cdn1.site-media.eu/images/0/19103878/28-B0O4kXIaDTHU9OuiN_f4FQ.png"></a>
+        <a href="#img12" class="card"><img src="https://cdn1.site-media.eu/images/0/19103876/29-CXsgJTbN2Bj4h2Poi4MPeQ.png"></a>
+        <a href="#img13" class="card"><img src="https://cdn1.site-media.eu/images/0/19103873/30-PM3Af2xpS8ivba4UlDK5IQ.png"></a>
+        <a href="#img14" class="card"><img src="https://cdn1.site-media.eu/images/0/19103871/31-QNWkNsqYIsjguf32rEWtnw.png"></a>
+        <a href="#img15" class="card"><img src="https://cdn1.site-media.eu/images/0/19103863/32-vLY7jvn_BisdM8dnmDwaAg.png"></a>
+        <a href="#img16" class="card"><img src="https://cdn1.site-media.eu/images/0/19103860/39-Bamg17PUyAdCUKYnE_Y6mg.png"></a>
+        <a href="#img17" class="card"><img src="https://cdn1.site-media.eu/images/0/19103857/1-heEivzb-etMrLepYET-EHw.png"></a>
+        <a href="#img18" class="card"><img src="https://cdn1.site-media.eu/images/0/19103856/2-69VsvVwq-slB5XuFkFaYmQ.png"></a>
+        <a href="#img19" class="card"><img src="https://cdn1.site-media.eu/images/0/19103853/3-wxdW3yHE7GswM7Xii6evpg.png"></a>
+        <a href="#img20" class="card"><img src="https://cdn1.site-media.eu/images/0/19103851/4-ifGnG4K6ntxKoEJdN8Y6OA.png"></a>
+        <a href="#img21" class="card"><img src="https://cdn1.site-media.eu/images/0/19103850/5-Qd3GzGswwZzi5jQHDOSviA.png"></a>
+        <a href="#img22" class="card"><img src="https://cdn1.site-media.eu/images/0/19103848/6-c9bYKMAcYfiy_R-fgGYm8w.png"></a>
+        <a href="#img23" class="card"><img src="https://cdn1.site-media.eu/images/0/19103844/7-YrGZ56o-TNKy6BQ0iiBrfw.png"></a>
+        <a href="#img24" class="card"><img src="https://cdn1.site-media.eu/images/0/19103838/8-VBjEANsdwHrqhD82iMz32w.png"></a>
+        <a href="#img25" class="card"><img src="https://cdn1.site-media.eu/images/0/19103836/9-1PzClkqz4dzyBoKlu0qtnQ.png"></a>
+        <a href="#img26" class="card"><img src="https://cdn1.site-media.eu/images/0/19103832/10-pQqFqyRCIMtvraXZ8CK0DA.png"></a>
+        <a href="#img27" class="card"><img src="https://cdn1.site-media.eu/images/0/19103826/17-g1lCAPTlxVb7ROTxiMvvKQ.png"></a>
+        <a href="#img28" class="card"><img src="https://cdn1.site-media.eu/images/0/19103821/38-y2MtQBFTJ7qhq8UQqxXmTw.png"></a>
+        <a href="#img29" class="card"><img src="https://cdn1.site-media.eu/images/0/19103815/40-NziLfXKiTOheD8RxcHORhw.png"></a>
+        <a href="#img30" class="card"><img src="https://cdn1.site-media.eu/images/0/19103811/bagcollection120copy-ZRiJiVhPs9R67SU74XbI6w.png"></a>
+        <a href="#img31" class="card"><img src="https://cdn1.site-media.eu/images/0/19103802/bagcollection110-HfFXDn_uZZCmiAVQULxD5A.png"></a>
+        <a href="#img32" class="card"><img src="https://cdn1.site-media.eu/images/0/19103790/8a630038cf28f017b3cd84f0dae889ef-d_A_Er8zyZsmXpvv6q7vcw.png"></a>
+        <a href="#img33" class="card"><img src="https://cdn1.site-media.eu/images/0/19103787/d1def003e988f38ff525a3a6d2944408-G75I8qHK74k-zcwYjbvZng.png"></a>
+        <a href="#img34" class="card"><img src="https://cdn1.site-media.eu/images/0/19103786/3-L_lW3zzReqGWaY5i5agOQA.png"></a>
+        <a href="#img35" class="card"><img src="https://cdn1.site-media.eu/images/0/19103785/Picture22-v3pqmyeywjqp0wx7glDTTw.png"></a>
+        <a href="#img36" class="card"><img src="https://cdn1.site-media.eu/images/0/19097425/6-tRSGV700Abc5HlHdinLFRw.jpg"></a>
+        <a href="#img37" class="card"><img src="https://cdn1.site-media.eu/images/0/19084635/ChatGPTImageJun29202503_32_41PM-Recovered-9Kii4R-snWKXo28PIQV3HA.png"></a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 text-center glass mx-6 md:mx-auto md:max-w-5xl rounded-xl">
+      <h3 class="cormorant text-3xl md:text-4xl text-white">If you are interested</h3>
+      <p class="mt-2">Call us to learn more about our operations and projects.</p>
+      <div class="mt-4 flex flex-wrap gap-3 justify-center">
+        <a href="tel:+959897447733" class="btn-primary">📞 +95-9-897 44 77 33</a>
+        <a href="tel:+959897447744" class="btn-primary">📞 +95-9-897 44 77 44</a>
+        <a href="tel:+959897447722" class="btn-primary">📞 +95-9-897 44 77 22</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="img1" class="modal"><a href="#" class="absolute inset-0"></a><img src="https://cdn1.site-media.eu/images/0/19103946/ChatGPTImageJun29202503_32_41PM-Recovered-RH1qR-LmJFPwVUUuu6RlAA.png"></div>
+  <!-- (repeat modal blocks for all img2, img3 … img37 like above) -->
+
+  <footer class="py-6 text-center text-slate-400">© <span id="yr"></span> BRITIUM VENTURES</footer>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+
+    // Music toggle
+    const music=document.getElementById("heroMusic");
+    const btn=document.getElementById("musicBtn");
+    let playing=false;
+    btn.addEventListener("click",()=>{
+      if(!playing){music.muted=false;music.play();playing=true;btn.textContent="🔇 Mute Music";}
+      else{music.pause();playing=false;btn.textContent="🔊 Play Music";}
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+body {
+  background-color: #020617;
+  color: #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.heading-style span:nth-child(odd) {
+  color: white;
+}
+
+.heading-style span:nth-child(even) {
+  color: #FFC700;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.glass {
+  background: rgba(11, 21, 39, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.acrylic-plate {
+  background: rgba(10, 20, 40, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.animated-element {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animated-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+.slideshow {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  height: 500px;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+#hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#hero-video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.group:hover .group-hover\:rotate-180 {
+  transform: rotate(180deg);
+}
+
+.group:hover .group-hover\:scale-100 {
+  transform: scale(1);
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+.group:hover .group-hover\:visible {
+  visibility: visible;
+}

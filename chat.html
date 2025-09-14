@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Chat | BRITIUM VENTURES</title>
+  <meta name="description" content="Chat with Britium AI Assistant for quick answers on logistics, trade, compliance, and business support."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--bg:#020617;--glass:#0b1527cc;--accent:#22d3ee;--accent2:#06b6d4;--text:#9fb0c7;--white:#e7eef8;--glow:0 12px 36px rgba(34,211,238,.22);}
+    body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
+    .cormorant{font-family:'Cormorant Garamond',serif}
+    .neon{color:var(--accent)}
+    .glass{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(34,211,238,.18)}
+    .btn{padding:.7rem 1.2rem;border-radius:.65rem;font-weight:700}
+    .btn-primary{background:var(--accent);color:#051027;box-shadow:var(--glow)}
+    .btn-primary:hover{background:var(--accent2)}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:1.25rem}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    /* Chat box */
+    .chat-container{max-width:960px;margin:2rem auto;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;height:68vh}
+    .chat-window{flex-grow:1;overflow-y:auto;margin-bottom:1rem;display:flex;flex-direction:column;gap:.7rem}
+    .bubble{padding:.7rem 1rem;border-radius:1rem;max-width:78%;line-height:1.6}
+    .user{align-self:flex-end;background:var(--accent);color:#051027;border-bottom-right-radius:0}
+    .assistant{align-self:flex-start;background:var(--glass);color:var(--white);border-bottom-left-radius:0}
+    .chat-input{display:flex;gap:.5rem}
+    .chat-input input{flex-grow:1;padding:.7rem 1rem;border-radius:.5rem;background:#0a1424;color:#fff;border:1px solid #1c2a43}
+  </style>
+</head>
+<body>
+  <header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+  <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+  <a href="about.html" class="hover:text-[#FFC700]">About</a>
+  <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+  <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+  <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+  <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+  <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+  <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+  <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+  <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+  <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+</nav>
+  </div>
+</header>
+<!-- MOBILE MENU -->
+<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
+  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
+    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="products.html">Products</a>
+      <a href="markets.html">Markets</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">AI Chat</a>
+    </div>
+  </nav>
+</div>
+
+
+  <main class="pt-28 md:pt-32">
+    <!-- Hero -->
+    <section class="text-center">
+      <!-- pulled from your previous chat hero video design :contentReference[oaicite:0]{index=0} -->
+      <video autoplay muted loop playsinline class="w-full h-[50vh] object-cover">
+        <source src="https://cdn1.site-media.eu/images/0/19088878/assets_task_01k4hj3btcfx08xd49ajsnx1fj_task_01k4hj3btcfx08xd49ajsnx1fj_genid_364f2962-6d00-4dc6-a6bc-52d6ae9c6723_25_09_07_07_47_803564_videos_00000_35133591_source-SERuFZw1tusoZpDDjcR3fg.mp4" type="video/mp4">
+      </video>
+      <h1 class="cormorant text-white text-5xl font-bold mt-6">Britium <span class="neon">AI Assistant</span></h1>
+      <p class="mt-3 max-w-3xl mx-auto">Get instant answers on customs, FDA permits, tariffs, routing options, documentation checklists, quotation steps, and more—24/7.</p>
+    </section>
+
+    <!-- What Chat Can Do -->
+    <section class="py-12 max-w-7xl mx-auto px-6">
+      <h2 class="cormorant text-3xl md:text-5xl text-white text-center mb-8">How the Assistant <span class="neon">Helps</span></h2>
+      <div class="grid-3">
+        <div class="card"><h3 class="text-white font-semibold">Customs & Compliance</h3><p>HS code hints, permit checklists, document order, typical processing steps, and red-flag risks.</p></div>
+        <div class="card"><h3 class="text-white font-semibold">Multimodal Options</h3><p>Road/barge/rail pros & cons, lead-time expectations, and data you should capture before booking.</p></div>
+        <div class="card"><h3 class="text-white font-semibold">Quotations & Intake</h3><p>Guides you to provide the right details (cargo, weights, timelines) so our team can price accurately.</p></div>
+        <div class="card"><h3 class="text-white font-semibold">Flexitank Basics</h3><p>When to use, capacity ranges, certification notes (FDA/ISO/impact test), and handling reminders.</p></div>
+        <div class="card"><h3 class="text-white font-semibold">Gifting & Branding</h3><p>Item selection, branding methods (engrave/emboss/print), packaging ideas, and lead times.</p></div>
+        <div class="card"><h3 class="text-white font-semibold">Handover to Humans</h3><p>Finishes by sharing contact routes to our team for quotations or special requests.</p></div>
+      </div>
+    </section>
+
+    <!-- Chat UI -->
+    <section class="px-6">
+      <div class="chat-container">
+        <div id="chat-window" class="chat-window">
+          <div class="bubble assistant">👋 Hello! I’m the Britium AI Assistant. How can I help today?</div>
+          <!-- seed based on your previous chat mockup :contentReference[oaicite:1]{index=1} -->
+        </div>
+        <div class="chat-input">
+          <input id="chat-input" type="text" placeholder="Type your message...">
+          <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="text-sm text-slate-400 mt-2">For urgent matters, call us directly: <a class="neon" href="tel:+959897447733">+95-9-897 44 77 33</a> / <a class="neon" href="tel:+959897447744">+95-9-897 44 77 44</a>.</div>
+      </div>
+    </section>
+
+    <!-- Human Support CTA -->
+    <section class="py-14 text-center glass mx-6 md:mx-auto md:max-w-5xl rounded-xl">
+      <h3 class="cormorant text-3xl md:text-4xl text-white">Prefer a human?</h3>
+      <p class="mt-2">Our team can jump in for quotations, permits, or project conversations.</p>
+      <div class="mt-4 flex flex-wrap gap-3 justify-center">
+        <a href="tel:+959897447733" class="btn btn-primary">📞 +95-9-897 44 77 33</a>
+        <a href="tel:+959897447744" class="btn btn-primary">📞 +95-9-897 44 77 44</a>
+        <a href="contact.html" class="btn btn-primary">Contact Form</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-6 text-center text-slate-400">© <span id="yr1"></span> BRITIUM VENTURES</footer>
+
+ <script>
+  async function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    const chat = document.getElementById("chat-window");
+
+    // User bubble
+    const user = document.createElement("div");
+    user.className = "bubble user";
+    user.textContent = text;
+    chat.appendChild(user);
+
+    input.value = "";
+
+    // Assistant loading bubble
+    const bot = document.createElement("div");
+    bot.className = "bubble assistant";
+    bot.textContent = "Typing...";
+    chat.appendChild(bot);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    
+    const apiKey = "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"; // 🔐 Paste your OpenAI key here
+
+    try {
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo", // or "gpt-4" if you have access
+          messages: [{ role: "user", content: text }],
+          temperature: 0.7
+        })
+      });
+
+      const data = await res.json();
+      bot.textContent = data.choices?.[0]?.message?.content || "⚠️ No response.";
+    } catch (err) {
+      bot.textContent = "⚠️ Could not reach OpenAI.";
+      console.error(err);
+    }
+
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  // Set footer year
+  document.getElementById("yr1").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

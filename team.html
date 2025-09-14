@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Our Team | BRITIUM VENTURES</title>
+    <meta name="description" content="Meet the dedicated team of logistics, legal, and trade experts driving Britium Ventures forward."/>
+    <meta name="author" content="Britium Ventures">
+    <meta name="theme-color" content="#020617"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+    <!-- SEO & Social Media Meta Tags -->
+    <meta property="og:title" content="Our Team | BRITIUM VENTURES" />
+    <meta property="og:description" content="The experts behind our future-forward logistics solutions." />
+    <meta property="og:image" content="https://cdn1.site-media.eu/images/0/19004305/1-PK1SREP3scoHJBQtlG9UMw.png" />
+    <meta property="og:url" content="https://www.britiumventures.com/team" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts & Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inline Styles & Customizations -->
+    <style>
+        body { background-color: #020617; color: #e2e8f0; font-family: 'Poppins', sans-serif; font-size: 14px; }
+        .font-garamond { font-family: 'Cormorant Garamond', serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        
+        .heading-style span:nth-child(odd) { color: white; }
+        .heading-style span:nth-child(even) { color: #FFC700; }
+
+        #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+        .glass { background: rgba(11, 21, 39, 0.65); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .acrylic-plate { background: rgba(10, 20, 40, 0.4); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
+        
+        .animated-element { opacity: 0; transform: translateY(25px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animated-element.is-visible { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        .text-justify { text-align: justify; }
+        
+        #hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+        #hero-video { min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+<div id="particles-js"></div>
+
+<!-- HEADER -->
+<header class="fixed inset-x-0 top-0 z-50 glass" aria-label="Main Navigation">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="Britium Ventures Home">
+            <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9 group-hover:rotate-12 transition-transform">
+            <span class="font-garamond text-xl font-bold text-white">BRITIUM <span class="text-[#FFC700]">VENTURES</span></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-slate-200 font-semibold text-sm" aria-label="Desktop Menu">
+             <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-[#FFC700] transition-colors" aria-haspopup="true" aria-expanded="false">About Us <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></button>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 p-2 glass rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100">
+                    <a href="about.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">About</a>
+                    <a href="team.html" class="block px-4 py-2 rounded-md bg-[#FFC700]/20">Team</a>
+                    <a href="careers.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">Careers</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-[#FFC700] transition-colors" aria-haspopup="true" aria-expanded="false">Services <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></button>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 p-2 glass rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100">
+                    <a href="capabilities.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">Capabilities</a>
+                    <a href="solutions.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">Solutions</a>
+                    <a href="products.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">Products</a>
+                    <a href="markets.html" class="block px-4 py-2 rounded-md hover:bg-[#FFC700] hover:text-slate-900">Markets</a>
+                </div>
+            </div>
+             <a href="gallery.html" class="hover:text-[#FFC700] transition-colors">Gallery</a>
+            <a href="contact.html" class="hover:text-[#FFC700] transition-colors">Contact</a>
+            <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20 transition-colors">AI Chat</a>
+        </nav>
+        <button id="mobile-toggle" class="md:hidden text-white text-3xl" aria-label="Open mobile menu" aria-controls="mobile-menu-container">☰</button>
+    </div>
+</header>
+
+<main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative h-[60vh] flex items-center justify-center text-center text-white p-6">
+        <div id="hero-video-container">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <video id="hero-video" autoplay loop muted playsinline poster="https://cdn1.site-media.eu/images/0/19004305/1-PK1SREP3scoHJBQtlG9UMw.png">
+                 <source src="https://cdn1.site-media.eu/images/0/19147225/1-nj4D54r9bzPWCJ5oQzXGAQ.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="relative z-10 acrylic-plate p-8 md:p-12 rounded-lg max-w-4xl mx-auto animated-element">
+            <h1 class="font-garamond text-4xl md:text-5xl font-bold uppercase tracking-wider heading-style">
+                <span>MEET</span> <span>OUR</span> <span>TEAM</span>
+            </h1>
+            <p class="mt-4 font-poppins text-lg text-slate-200 max-w-3xl mx-auto">The dedicated professionals powering Britium Ventures.</p>
+        </div>
+    </section>
+
+    <!-- AI TEAM SUMMARY SECTION -->
+    <section class="py-16 text-center">
+        <div class="max-w-4xl mx-auto px-6 glass rounded-lg p-8">
+            <h2 class="font-garamond text-3xl font-bold uppercase heading-style animated-element"><span>OUR</span> <span>COLLECTIVE</span> <span>EXPERTISE</span></h2>
+            <p class="mt-4 text-white text-justify animated-element delay-100">Our strength lies in our diverse team of specialists. Click the button below to generate an AI-powered summary of our collective capabilities based on the roles of our key personnel.</p>
+            <div class="mt-6 animated-element delay-200">
+                <button id="generate-summary-btn" class="px-6 py-3 rounded-lg font-bold bg-[#FFC700] text-slate-950 hover:bg-yellow-500 transition-colors">✨ Generate Team Summary</button>
+            </div>
+            <div id="summary-loading-spinner" class="mt-4 hidden flex justify-center">
+                <svg class="animate-spin h-6 w-6 text-[#FFC700]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </div>
+            <div id="summary-response-container" class="mt-4 text-white text-justify hidden"></div>
+        </div>
+    </section>
+
+    <!-- TEAM GRID -->
+    <section id="team" class="py-20">
+        <div id="team-grid" class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Team members will be dynamically inserted here -->
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="py-12 bg-slate-950/50 text-slate-400 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+            <h4 class="font-garamond text-lg font-bold text-white">BRITIUM <span class="text-[#FFC700]">VENTURES</span></h4>
+            <p class="mt-2 text-sm">Confidence in Motion.</p>
+        </div>
+        <div>
+            <h5 class="font-bold text-white uppercase tracking-wider text-sm">Contact Us</h5>
+            <address class="mt-4 not-italic space-y-2 text-sm">
+                <p>No. 123, Logistics Avenue<br>Yangon, Myanmar</p>
+                <a href="mailto:info@britiumventures.com" class="block hover:text-[#FFC700] transition-colors">info@britiumventures.com</a>
+                <a href="tel:+9512345678" class="block hover:text-[#FFC700] transition-colors">+95 1 234 5678</a>
+            </address>
+        </div>
+        <div>
+            <h5 class="font-bold text-white uppercase tracking-wider text-sm">Follow Us</h5>
+            <div class="flex gap-4 mt-4">
+                <a href="#" class="hover:text-[#FFC700] transition-colors" aria-label="LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" class="hover:text-[#FFC700] transition-colors" aria-label="Twitter"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.588-7.52 2.588-.49 0-.974-.03-1.451-.086 2.685 1.727 5.869 2.75 9.282 2.75 11.121 0 17.211-9.214 17.211-17.211 0-.263-.006-.525-.018-.786.99-.713 1.849-1.608 2.535-2.625z"/></svg></a>
+            </div>
+        </div>
+        <div>
+             <h5 class="font-bold text-white uppercase tracking-wider text-sm">Legal</h5>
+             <div class="mt-4 flex flex-col space-y-2 text-sm">
+                <a href="#" class="hover:text-[#FFC700] transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-[#FFC700] transition-colors">Terms of Service</a>
+             </div>
+        </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-slate-800 text-center text-xs">
+        <p>&copy; <span id="yr"></span> BRITIUM VENTURES CO., LTD. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => document.querySelectorAll(sel);
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // Observe initial elements
+    $$('.animated-element').forEach(el => observer.observe(el));
+    
+    $('#yr').textContent = new Date().getFullYear();
+
+    // --- MOBILE MENU ---
+    const mobileToggle = $('#mobile-toggle');
+    const mobileMenuContainer = $('#mobile-menu-container');
+    const mobileMenu = $('#mobile-menu');
+    const mobileMenuOverlay = $('#mobile-menu-overlay');
+
+    const toggleMenu = () => {
+        if (mobileMenuContainer) mobileMenuContainer.classList.toggle('hidden');
+        if (mobileMenu) mobileMenu.classList.toggle('translate-x-full');
+    };
+
+    if (mobileToggle) mobileToggle.addEventListener('click', toggleMenu);
+    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
+    $$('.mobile-link').forEach(link => link.addEventListener('click', toggleMenu));
+
+    // --- TEAM DATA & RENDERING ---
+    const teamData = [
+      { "name": "Kyaw Wanna", "role": "Managing Director", "img": "https://cdn1.site-media.eu/images/0/19004305/1-PK1SREP3scoHJBQtlG9UMw.png" },
+      { "name": "Moe Myint San", "role": "General Manager", "img": "https://cdn1.site-media.eu/images/0/19004302/2-EzyWA2DZzPFHjQf-LyJuxQ.png" },
+      { "name": "Sai Nyan Htun", "role": "Head of Office", "img": "https://cdn1.site-media.eu/images/0/19004299/3-9Vc6rHOAB0dqzNQzKm0MMQ.png" },
+      { "name": "Aye Thuzar Aung", "role": "Head of Legal", "img": "https://cdn1.site-media.eu/images/0/19004296/4-IlISvFFNl9M2Aax7XMbamg.png" },
+      { "name": "Myo Kyaw Kyaw", "role": "Head of Trade & Logistics", "img": "https://cdn1.site-media.eu/images/0/19004292/5-GicXwdW2_SQnaAVsmC7b9g.png" },
+      { "name": "Zun Min Htwe", "role": "Project Manager", "img": "https://cdn1.site-media.eu/images/0/19004289/6-7CbY6bZdkYHJOOhloEHOlA.png" },
+      { "name": "Thiha Aung", "role": "Senior Brokerage", "img": "https://cdn1.site-media.eu/images/0/19004287/7-tpGNnK1rxKKqGQCtcpK-Nw.png" },
+      { "name": "Myo Myint Thu", "role": "Senior Executive (Business Dev)", "img": "https://cdn1.site-media.eu/images/0/19004286/8-o5npWy0_MoefGgQ3Qxk6qg.png" },
+      { "name": "Yoon Me Me Kyaw", "role": "Junior Trader", "img": "https://cdn1.site-media.eu/images/0/19004283/9-UYX3nW6FOmDWJFdYsZcmhw.png" },
+      { "name": "Kay Khine Nyunt", "role": "Advocate", "img": "https://cdn1.site-media.eu/images/0/19004280/10-l4ZU3w4AKltj1c_SqYJY5g.png" },
+      { "name": "Bo Bo", "role": "Admin Assistant", "img": "https://cdn1.site-media.eu/images/0/19004277/11-kxOFKLAPr8DrRX4aKC7D7Q.png" },
+      { "name": "Aye Chan Naung", "role": "Assistant Manager (HR/Admin)", "img": "https://cdn1.site-media.eu/images/0/19004274/12-t36jhbfoSKh1CFCA1lhckw.png" },
+      { "name": "M Nin Sar", "role": "Senior Sales Representative", "img": "https://cdn1.site-media.eu/images/0/19004271/13-pyHJrg5InGNe6PwVMPpw-Q.png" },
+      { "name": "Zin Mar Hnin", "role": "Senior Sales Representative", "img": "https://cdn1.site-media.eu/images/0/19004268/14-IxiXDxGocFnlK4w0r0qLqQ.png" },
+      { "name": "Zaw Min Htike", "role": "MD Office", "img": "https://cdn1.site-media.eu/images/0/19004265/15-eu5pFJxaABH7-uccuXl8Lw.png" },
+      { "name": "Hnin Yu Naing", "role": "Senior Executive (Admin/HR)", "img": "https://cdn1.site-media.eu/images/0/19004259/16-vwn2kkQi1TyV3pXfWsEYvQ.png" },
+      { "name": "Moe Moe Khaing", "role": "Senior Accountant", "img": "https://cdn1.site-media.eu/images/0/19004256/17-t8ydrMaQk0PBFUkxincAfw.png" },
+      { "name": "Yin Yin Aung", "role": "Admin Assistance", "img": "https://cdn1.site-media.eu/images/0/19084399/YinYinAung-7e-Mh-5NbW06whVU5Z6WNw.png" },
+      { "name": "Ei Ei Myo", "role": "Showroom Incharge", "img": "https://cdn1.site-media.eu/images/0/19084614/EiEiMyo-sIGjyWhqrp10Q9BqqecRGg.png" },
+      { "name": "Shwe Poe Eain", "role": "Cashier", "img": "https://cdn1.site-media.eu/images/0/19090581/20--TQwCGSCraL9ze2hNNkBpA.png" },
+      { "name": "Aung Myo Thu", "role": "Admin Assistant", "img": "https://cdn1.site-media.eu/images/0/19084572/MyoThu-ZSKc-8Ft2KuLPbhl9vTufQ.png" },
+      { "name": "Aye Chan Myat Noe Khin", "role": "Digital Marketing", "img": "https://cdn1.site-media.eu/images/0/19090623/24-Aja7AsXUoKlv03jEJ7KtNQ.png" },
+      { "name": "Shine Htet Aung", "role": "Sales Assistant", "img": "https://cdn1.site-media.eu/images/0/19084425/ShineHtetAung-fC0z1cYrFtpUv3liPFXoXw.png" },
+      { "name": "Hnit Oo Wai", "role": "MD Office", "img": "https://cdn1.site-media.eu/images/0/19090420/HnitOoWai-YQKwb58qftjIJWpfkEAiVQ.png" },
+      { "name": "Min Htet Zaw", "role": "Sales Executive", "img": "https://cdn1.site-media.eu/images/0/19046714/ChatGPTImageSep9202510_35_28AM-q292l1bhuVaZI3OTLctcWA.png" },
+      { "name": "Kyaw Swar Win", "role": "Admin Assistant", "img": "https://cdn1.site-media.eu/images/0/19047055/ChatGPTImageSep9202510_57_39AM-1L9B2SszU0jf-nQk8pe9_g.png" }
+    ];
+
+    const teamGrid = $('#team-grid');
+    if (teamGrid) {
+        teamData.forEach((member, index) => {
+            const card = document.createElement('div');
+            card.className = `glass p-6 rounded-xl text-center flex flex-col items-center animated-element`;
+            
+            card.innerHTML = `
+                <div class="relative w-full h-64 mb-4 rounded-lg overflow-hidden group">
+                    <img src="${member.img}" alt="${member.name}" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
+                </div>
+                <h3 class="font-poppins text-lg font-bold text-white uppercase">${member.name}</h3>
+                <p class="font-poppins text-sm text-[#FFC700] uppercase">${member.role}</p>
+                <div class="mt-4 w-full">
+                    <button class="generate-ai-bio-btn font-semibold text-[#FFC700] hover:text-yellow-300 transition-colors text-sm flex items-center justify-center gap-2 w-full" data-name="${member.name}" data-role="${member.role}">
+                        ✨ Ask AI for Bio
+                    </button>
+                    <div class="ai-response-container mt-2 text-white text-justify hidden"></div>
+                    <div class="loading-spinner mt-2 hidden flex justify-center">
+                        <svg class="animate-spin h-5 w-5 text-[#FFC700]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </div>
+            `;
+            teamGrid.appendChild(card);
+            // FIX: Observe the newly created card
+            observer.observe(card);
+        });
+    }
+    
+  const callOpenAIBio = async (userQuery, systemPrompt) => {
+  
+  const apiKey = "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"; // 🔐 Insert your real key here
+  const apiUrl = "https://api.openai.com/v1/chat/completions";
+  
+  const payload = {
+    model: "gpt-3.5-turbo",
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userQuery }
+    ],
+    temperature: 0.7
+  };
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || null;
+  } catch (error) {
+    console.error("OpenAI API Error:", error);
+    return null;
+  }
+};
+</script>
+</body>
+</html>
+
