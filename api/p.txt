@@ -1,1 +1,17 @@
 G9=8i^$Hk62.lUv{
+
+curl -X POST 'https://public-3cg7k50al-britium-ventures-website.vercel.app/api/add-job' \
+
+-H "Content-Type: application/json" \
+
+-H "Authorization: G9=8i^$Hk62.lUv{" \
+
+-d '{
+
+  "title": "Logistics Coordinator",
+
+  "location": "Yangon",
+
+  "type": "Full-time"
+
+}'

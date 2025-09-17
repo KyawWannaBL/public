@@ -25,13 +25,13 @@
       color: #B8860B;
     }
     .border-gold {
-        border-color: #B8860B;
+      border-color: #B8860B;
     }
     .bg-gold {
-        background-color: #B8860B;
+      background-color: #B8860B;
     }
     .hover\:bg-gold-dark:hover {
-        background-color: #8B6508;
+      background-color: #8B6508;
     }
     .animated-element {
       opacity: 0;
@@ -43,24 +43,21 @@
       transform: translateY(0);
     }
     .service-card {
-        background-color: #111111;
-        border: 1px solid #2d3748;
-        transition: transform 0.3s ease, border-color 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      background-color: #111111;
+      border: 1px solid #2d3748;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
     }
     .service-card:hover {
-        transform: translateY(-5px);
-        border-color: #B8860B;
+      transform: translateY(-5px);
+      border-color: #B8860B;
     }
     .service-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
     #particles-js {
       position: fixed;
@@ -68,12 +65,11 @@
       height: 100%;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: 0;
     }
-    /* This new main wrapper ensures content flows correctly over the background */
     .main-content {
-        position: relative;
-        z-index: 1;
+      position: relative;
+      z-index: 1;
     }
   </style>
 </head>
@@ -81,222 +77,243 @@
 
 <div id="particles-js"></div>
 
-<header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
-      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
-    </a>
-    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
-  <a href="index.html" class="hover:text-[#FFC700]">Home</a>
-  <a href="about.html" class="hover:text-[#FFC700]">About</a>
-  <a href="team.html" class="hover:text-[#FFC700]">Team</a>
-  <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
-  <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
-  <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
-  <a href="products.html" class="hover:text-[#FFC700]">Products</a>
-  <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
-  <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
-  <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
-  <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
-</nav>
-  </div>
-</header>
-<!-- MOBILE MENU -->
-<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
-  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
-  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
-    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="team.html">Team</a>
-      <a href="careers.html">Careers</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="products.html">Products</a>
-      <a href="markets.html">Markets</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a href="chat.html">AI Chat</a>
-    </div>
-  </nav>
-</div>
-
-
-<main class="main-content">
-    <section id="hero" class="relative h-[60vh] flex items-center justify-center text-center">
-      <video autoplay loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-        <source src="https://cdn1.site-media.eu/images/0/19176997/Untitleddesign10-K3IbyIeEG7k7u7GrGceSkg.mp4" type="video/mp4" />
-      </video>
-      <div class="absolute inset-0 bg-black/60"></div>
-      <div class="relative z-10 text-white max-w-4xl mx-auto px-6 animated-element">
-        <h1 class="text-4xl md:text-6xl font-garamond font-bold uppercase tracking-wider">
-          Our <span class="text-gold">Capabilities</span>
-        </h1>
-        <p class="mt-4 text-lg text-gray-300">
-          A comprehensive suite of integrated services designed to manage complexity and drive success in trade and logistics.
-        </p>
+<div class="main-content">
+    <header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+          <span class="font-garamond text-xl font-bold text-white">BRITIUM <span class="text-gold">VENTURES</span></span>
+        </a>
+        <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+          <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+          <a href="about.html" class="hover:text-[#FFC700]">About</a>
+          <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+          <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+          <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+          <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+          <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+          <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+          <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+          <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+          <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+        </nav>
+        <button id="mobile-toggle" class="md:hidden text-white text-3xl">☰</button>
       </div>
-      <div class="absolute bottom-4 right-4 flex items-center gap-4 bg-black/30 p-2 rounded-lg z-10">
-        <button id="mute-btn" class="text-white text-xl">🔊</button>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" class="w-24 h-1">
-      </div>
-    </section>
+    </header>
 
-    <section class="py-20 bg-transparent">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-garamond font-bold text-white animated-element">Expertise in <span class="text-gold">Managing Complexity</span></h2>
-            <p class="mt-6 text-lg text-gray-400 text-justify animated-element">
-                At Britium Ventures, we bring structure and clarity to the complexity of global trade and logistics. We specialize in orchestrating the intricate elements of cross-border logistics—seamlessly integrating regulatory compliance, multi-product handling, and project-specific execution. With an agile mindset, our team ensures every supply chain decision is handled with accountability, flexibility, and precision.
-            </p>
+    <div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
+      <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
+      <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform duration-300">
+        <div class="flex flex-col gap-y-6 mt-16 text-lg text-white">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="team.html">Team</a>
+          <a href="careers.html">Careers</a>
+          <a href="capabilities.html">Capabilities</a>
+          <a href="solutions.html">Solutions</a>
+          <a href="products.html">Products</a>
+          <a href="markets.html">Markets</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="chat.html">AI Chat</a>
         </div>
-    </section>
+      </nav>
+    </div>
 
-    <section class="py-20 bg-transparent">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-garamond font-bold text-white animated-element">Our <span class="text-gold">Multifunctional Services</span></h2>
-                <p class="mt-4 text-gray-400 max-w-3xl mx-auto animated-element">
-                    We offer a robust portfolio of services tailored to support end-to-end operational needs, serving as a true single-point partner for our clients.
+    <main>
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center">
+            <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+                <source src="https://cdn1.site-media.eu/images/0/19176997/Untitleddesign10-K3IbyIeEG7k7u7GrGceSkg.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 text-white animated-element px-4">
+                <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-24 w-24 mx-auto mb-4">
+                <h1 class="text-4xl md:text-6xl font-garamond font-bold uppercase tracking-wider">
+                    Our <span class="text-gold">CAPABILITIES</span>
+                </h1>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">A comprehensive suite of integrated services designed to manage complexity and drive success in trade and logistics.</p>
+            </div>
+            <div class="absolute bottom-4 right-4 flex items-center gap-4 bg-black/30 p-2 rounded-lg z-10">
+                <button id="unmute-btn" class="text-white text-xl">🔇</button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0" class="w-24 h-1">
+            </div>
+        </section>
+
+        <section class="py-20 bg-transparent">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-garamond font-bold text-white animated-element">Expertise in <span class="text-gold">Managing Complexity</span></h2>
+                <p class="mt-6 text-lg text-gray-400 text-justify animated-element">
+                    At Britium Ventures, we bring structure and clarity to the complexity of global trade and logistics. We specialize in orchestrating the intricate elements of cross-border logistics—seamlessly integrating regulatory compliance, multi-product handling, and project-specific execution. With an agile mindset, our team ensures every supply chain decision is handled with accountability, flexibility, and precision.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175295/BritiumGalleryclip2-Ba2aWlLtEyROlgfGrlzIgg.jpg" alt="Customs Brokerage" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Customs Brokerage & Compliance</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            We provide licensed brokerage assistance for import/export customs clearance, ensuring smooth processes through accurate documentation and regulatory adherence.
-                        </p>
-                    </div>
+        </section>
+
+        <section class="py-20 bg-transparent">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-garamond font-bold text-white animated-element">Our <span class="text-gold">Multifunctional Services</span></h2>
+                    <p class="mt-4 text-gray-400 max-w-3xl mx-auto animated-element">
+                        We offer a robust portfolio of services tailored to support end-to-end operational needs, serving as a true single-point partner for our clients.
+                    </p>
                 </div>
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175293/BritiumGalleryclip1-9VGaXkaQKSKPeavU_z1DxA.jpg" alt="Logistics & Trading" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Logistics & Trading</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            Full-spectrum logistics support including freight forwarding, warehousing, and multimodal transportation, providing full visibility and delivery efficiency.
-                        </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175295/BritiumGalleryclip2-Ba2aWlLtEyROlgfGrlzIgg.jpg" alt="Customs Brokerage" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Customs Brokerage & Compliance</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                We provide licensed brokerage assistance for import/export customs clearance, ensuring smooth processes through accurate documentation and regulatory adherence.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175301/BritiumGalleryclip4-3HnMmewTB9C9Gau-QUC2sA.jpg" alt="Project & Industrial Logistics" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Project & Industrial Logistics</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            Turnkey project oversight from planning to execution for complex operations, managing heavy equipment and bulk commodities for time-sensitive projects.
-                        </p>
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175293/BritiumGalleryclip1-9VGaXkaQKSKPeavU_z1DxA.jpg" alt="Logistics & Trading" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Logistics & Trading</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                Full-spectrum logistics support including freight forwarding, warehousing, and multimodal transportation, providing full visibility and delivery efficiency.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175298/BritiumGalleryclip3-jch5YgifvUEWp8TnQY5pqw.jpg" alt="Project Consultation" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Project Consultation</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            End-to-end product procurement from vetted suppliers, ensuring quality, cost-effectiveness, and access to a reliable global supply network.
-                        </p>
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175301/BritiumGalleryclip4-3HnMmewTB9C9Gau-QUC2sA.jpg" alt="Project & Industrial Logistics" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Project & Industrial Logistics</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                Turnkey project oversight from planning to execution for complex operations, managing heavy equipment and bulk commodities for time-sensitive projects.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175379/Legal-TnrjTEJfD7IK2YCMFnZ2Ag.jpg" alt="Legal Services" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Legal Services</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            In-depth advisory on logistics, trade compliance, and market entry strategy. Our legal support is tailored for international trade, contracts, and compliance.
-                        </p>
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175298/BritiumGalleryclip3-jch5YgifvUEWp8TnQY5pqw.jpg" alt="Project Consultation" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Project Consultation</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                End-to-end product procurement from vetted suppliers, ensuring quality, cost-effectiveness, and access to a reliable global supply network.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card p-6 rounded-lg animated-element">
-                    <img src="https://cdn1.site-media.eu/images/0/19175292/ChatGPTImageSep10202508_16_38PM-IzycNBpbY9MTC9-1C0tn_g.png" alt="Real Estate & Engineering" />
-                    <div class="p-4">
-                        <h3 class="font-garamond text-2xl font-bold text-gold">Real Estate & Engineering</h3>
-                        <p class="mt-4 text-gray-400 text-justify">
-                            Strategically sourced commercial and industrial real estate, including warehouses and logistics hubs, to support expansion and operational efficiency.
-                        </p>
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175379/Legal-TnrjTEJfD7IK2YCMFnZ2Ag.jpg" alt="Legal Services" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Legal Services</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                In-depth advisory on logistics, trade compliance, and market entry strategy. Our legal support is tailored for international trade, contracts, and compliance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card rounded-lg animated-element">
+                        <img src="https://cdn1.site-media.eu/images/0/19175292/ChatGPTImageSep10202508_16_38PM-IzycNBpbY9MTC9-1C0tn_g.png" alt="Real Estate & Engineering" class="rounded-t-lg" />
+                        <div class="p-6">
+                            <h3 class="font-garamond text-2xl font-bold text-gold">Real Estate & Engineering</h3>
+                            <p class="mt-4 text-gray-400 text-justify">
+                                Strategically sourced commercial and industrial real estate, including warehouses and logistics hubs, to support expansion and operational efficiency.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<footer class="py-10 bg-[#111111]/80 backdrop-blur-sm text-gray-400 border-t border-gray-800 relative z-10">
-  <div class="max-w-6xl mx-auto px-6 text-center text-sm">
-    <p>&copy; <span id="year"></span> Britium Ventures. All Rights Reserved.</p>
-    <p class="mt-2">Yangon, Myanmar | <a href="mailto:info@britiumventures.com" class="hover:text-gold">info@britiumventures.com</a></p>
-  </div>
-</footer>
+    <footer class="py-10 bg-[#111111]/80 backdrop-blur-sm text-gray-400 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+        <p>&copy; <span id="year"></span> Britium Ventures. All Rights Reserved.</p>
+        <p class="mt-2">Yangon, Myanmar | <a href="mailto:info@britiumventures.com" class="hover:text-gold">info@britiumventures.com</a></p>
+      </div>
+    </footer>
+</div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
 <script>
-  // --- OBSERVER FOR ANIMATIONS ---
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- INITIALIZE PARTICLES.JS ---
+    const initParticles = () => {
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#B8860B" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": true },
+            "size": { "value": 2, "random": true },
+            "line_linked": { "enable": false },
+            "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+          },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+          "retina_detect": true
+        });
       }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
-  
-  // --- FOOTER YEAR ---
-  document.getElementById("year").textContent = new Date().getFullYear();
+    };
 
-  // --- HERO VIDEO SOUND CONTROLS ---
-  const heroVideo = document.querySelector("#hero video");
-  const muteBtn = document.getElementById("mute-btn");
-  const volumeSlider = document.getElementById("volume-slider");
+    // --- INITIALIZE SCROLL ANIMATIONS ---
+    const initScrollAnimations = () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
+    };
 
-  if (heroVideo) {
-    async function playVideoWithSound() {
-      try {
-        heroVideo.muted = false;
-        await heroVideo.play();
-        muteBtn.textContent = "🔊";
-      } catch (err) {
-        heroVideo.muted = true;
-        heroVideo.play();
-        muteBtn.textContent = "🔇";
-      }
-    }
-    playVideoWithSound();
+    // --- INITIALIZE MOBILE MENU ---
+    const initMobileMenu = () => {
+      const toggle = document.getElementById("mobile-toggle");
+      const menuContainer = document.getElementById("mobile-menu-container");
+      const menu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("mobile-menu-overlay");
 
-    muteBtn.addEventListener("click", () => {
-      heroVideo.muted = !heroVideo.muted;
-      muteBtn.textContent = heroVideo.muted ? "🔇" : "🔊";
-    });
+      if (!toggle || !menuContainer || !menu || !overlay) return;
 
-    volumeSlider.addEventListener("input", (e) => {
-      heroVideo.volume = e.target.value;
-      if (heroVideo.volume > 0) {
-        heroVideo.muted = false;
-        muteBtn.textContent = "🔊";
-      } else {
-        heroVideo.muted = true;
-        muteBtn.textContent = "🔇";
-      }
-    });
-  }
+      const toggleMenu = () => {
+        const isHidden = menuContainer.classList.contains("hidden");
+        if (isHidden) {
+          menuContainer.classList.remove("hidden");
+          setTimeout(() => menu.classList.remove("translate-x-full"), 20);
+        } else {
+          menu.classList.add("translate-x-full");
+          setTimeout(() => menuContainer.classList.add("hidden"), 300);
+        }
+      };
+      [toggle, overlay].forEach(el => el.addEventListener("click", toggleMenu));
+    };
 
-  // --- INITIALIZE PARTICLE BACKGROUND ---
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 800 } },
-      color: { value: "#B8860B" },
-      shape: { type: "circle" },
-      opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-      size: { value: 2, random: true, anim: { enable: false } },
-      line_linked: { enable: true, distance: 150, color: "#B8860B", opacity: 0.2, width: 1 },
-      move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
-      modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } } }
-    },
-    retina_detect: true
+    // --- INITIALIZE HERO VIDEO CONTROLS ---
+    const initVideoControls = () => {
+      const video = document.querySelector("#hero video");
+      const btn = document.getElementById("unmute-btn");
+      const slider = document.getElementById("volume-slider");
+      if (!video || !btn || !slider) return;
+
+      btn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        btn.textContent = video.muted ? "🔇" : "🔊";
+        slider.value = video.muted ? 0 : video.volume;
+      });
+
+      slider.addEventListener("input", e => {
+        video.volume = parseFloat(e.target.value);
+        video.muted = video.volume === 0;
+        btn.textContent = video.muted ? "🔇" : "🔊";
+      });
+    };
+
+    // --- SET FOOTER YEAR ---
+    const setFooterYear = () => {
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    };
+
+    // --- RUN ALL INITIALIZATIONS ---
+    initParticles();
+    initScrollAnimations();
+    initMobileMenu();
+    initVideoControls();
+    setFooterYear();
   });
 </script>
 

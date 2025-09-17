@@ -3,346 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRITIUM VENTURES — Confidence in Motion</title>
-  <meta name="description" content="Britium Ventures delivers compliance, clarity, and results across customs, logistics, sourcing, and advisory." />
+  <title>Britium Ventures — Confidence in Motion</title>
+  <meta name="description" content="Britium Ventures delivers compliance, clarity, and results across customs, logistics, sourcing, and advisory in Myanmar and beyond." />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" href="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" />
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    body {
-      background-color: #0a0a0a;
-      color: #a0aec0; /* A light gray for body text */
-      font-family: 'Inter', sans-serif;
-    }
-    .font-garamond {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .text-gold {
-      color: #B8860B; /* A more subtle, dark gold */
-    }
-    .border-gold {
-        border-color: #B8860B;
-    }
-    .bg-gold {
-        background-color: #B8860B;
-    }
-    .hover\:bg-gold-dark:hover {
-        background-color: #8B6508;
-    }
-    .animated-element {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .animated-element.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    body { background-color: #0a0a0a; color: #a0aec0; font-family: 'Inter', sans-serif; }
+    .font-garamond { font-family: 'Cormorant Garamond', serif; }
+    .text-gold { color: #D4AF37; }
+    .bg-gold { background-color: #D4AF37; }
+    .hover\:bg-gold-dark:hover { background-color: #B8860B; }
+    .animated-element { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .animated-element.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* Chatbot Styles */
+    #chatbot { position: fixed; bottom: 20px; right: 20px; width: 360px; background: #111827; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 10px 25px rgba(0,0,0,0.5); overflow: hidden; z-index: 1000; }
+    #chat-header { background: #1f2937; color: white; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    #chat-body { display: flex; flex-direction: column; height: 400px; }
+    #chat-window { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .composer { display: flex; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid #374151; align-items: center; }
+    #chat-input { flex: 1; padding: 0.5rem 0.75rem; border-radius: 0.5rem; background: #1f2937; border: 1px solid #374151; color: white; outline: none; }
+    .composer button { background: #D4AF37; color: black; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: bold; border: none; cursor: pointer; }
   </style>
 </head>
+
 <body class="antialiased overflow-x-hidden">
 
 <header class="fixed inset-x-0 top-0 z-50 bg-black/30 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
-      <span class="font-garamond text-xl font-bold text-white">BRITIUM</span>
-    </a>
-    <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
-  <a href="index.html" class="hover:text-[#FFC700]">Home</a>
-  <a href="about.html" class="hover:text-[#FFC700]">About</a>
-  <a href="team.html" class="hover:text-[#FFC700]">Team</a>
-  <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
-  <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
-  <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
-  <a href="products.html" class="hover:text-[#FFC700]">Products</a>
-  <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
-  <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
-  <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
-  <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
-</nav>
-  </div>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+        <span class="font-garamond text-xl font-bold text-white">BRITIUM <span class="text-gold">VENTURES</span></span>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-200">
+        <a href="index.html" class="hover:text-[#FFC700]">Home</a>
+        <a href="about.html" class="hover:text-[#FFC700]">About</a>
+        <a href="team.html" class="hover:text-[#FFC700]">Team</a>
+        <a href="careers.html" class="hover:text-[#FFC700]">Careers</a>
+        <a href="capabilities.html" class="hover:text-[#FFC700]">Capabilities</a>
+        <a href="solutions.html" class="hover:text-[#FFC700]">Solutions</a>
+        <a href="products.html" class="hover:text-[#FFC700]">Products</a>
+        <a href="markets.html" class="hover:text-[#FFC700]">Markets</a>
+        <a href="gallery.html" class="hover:text-[#FFC700]">Gallery</a>
+        <a href="contact.html" class="hover:text-[#FFC700]">Contact</a>
+        <a href="chat.html" class="px-4 py-2 rounded-md bg-[#FFC700]/10 text-[#FFC700] border border-[#FFC700]/20 hover:bg-[#FFC700]/20">AI Chat</a>
+      </nav>
+      <button id="mobile-toggle" class="md:hidden text-white text-3xl">☰</button>
+    </div>
 </header>
-<!-- MOBILE MENU -->
-<div id="mobile-menu-container" class="fixed inset-0 z-40 md:hidden hidden">
-  <div id="mobile-menu-overlay" class="absolute inset-0 bg-slate-950/70"></div>
-  <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-slate-900/90 p-8 transform translate-x-full transition-transform">
-    <div class="flex flex-col gap-y-6 mt-16 text-lg text-white">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="team.html">Team</a>
-      <a href="careers.html">Careers</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="products.html">Products</a>
-      <a href="markets.html">Markets</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a href="chat.html">AI Chat</a>
-    </div>
-  </nav>
-</div>
 
-<section id="hero" class="relative h-screen flex items-center justify-center text-center">
-  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-    <source src="https://cdn1.site-media.eu/images/0/19084528/publichero-about.mp4-xEnx6KE-DFaDuduLkVQaBw.mp4" type="video/mp4" />
-  </video>
-  <div class="absolute inset-0 bg-black/60"></div>
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center">
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+      <source src="https://cdn1.site-media.eu/images/0/19084528/publichero-about.mp4-xEnx6KE-DFaDuduLkVQaBw.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-white animated-element">
+      <h1 class="text-4xl md:text-6xl font-garamond font-bold uppercase tracking-wider">BRITIUM <span class="text-gold">VENTURES</span></h1>
+      <p class="mt-4 text-lg text-gray-300">Confidence in Motion</p>
 
-  <div class="relative z-10 text-white animated-element">
-    <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-24 w-24 mx-auto mb-4">
-    <h1 class="text-4xl md:text-6xl font-garamond font-bold uppercase tracking-wider">
-      BRITIUM <span class="text-gold">VENTURES</span>
-    </h1>
-    <p class="mt-4 text-lg text-gray-300">
-      Confidence in Motion
-    </p>
-  </div>
-
-  <div class="absolute bottom-4 right-4 flex items-center gap-4 bg-black/30 p-2 rounded-lg z-10">
-    <button id="unmute-btn" class="text-white text-xl">🔇</button>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" class="w-24 h-1">
-  </div>
-</section>
-
-<section class="py-20 bg-[#0a0a0a] text-center">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-garamond font-bold text-white mb-10 animated-element">GALLERY <span class="text-gold">HIGHLIGHTS</span></h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 animated-element">
-      <div class="md:col-span-2 h-full">
-        <img id="gallery-img-1" src="https://cdn1.site-media.eu/images/0/19062237/6-H87QEwywSJoNUR0L4xvUxA.jpg" alt="Gallery Image 1" class="w-full h-full object-cover rounded-lg shadow-lg">
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <button id="unmute-btn" class="text-2xl">🔇</button>
+        <input id="volume-slider" type="range" min="0" max="1" step="0.05" value="0.5" class="w-24 accent-gold">
       </div>
-      <div class="grid grid-rows-2 gap-4">
-        <img id="gallery-img-2" src="https://cdn1.site-media.eu/images/0/19062240/5-8n8aK1fNsJRUfQbSX2EciQ.jpg" alt="Gallery Image 2" class="w-full h-full object-cover rounded-lg shadow-lg">
-        <img id="gallery-img-3" src="https://cdn1.site-media.eu/images/0/19059492/viber_image_2025-09-09_19-54-25-465-I_Az5INnLsq57CkmidwaTw.jpg" alt="Gallery Image 3" class="w-full h-full object-cover rounded-lg shadow-lg">
+    </div>
+  </section>
+
+  <section class="py-20 bg-[#0a0a0a] text-center">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-garamond font-bold text-white mb-10 animated-element">GALLERY <span class="text-gold">HIGHLIGHTS</span></h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 animated-element gallery">
+        <img id="gallery-img-1" src="https://cdn1.site-media.eu/images/0/19062237/6-H87QEwywSJoNUR0L4xvUxA.jpg" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+        <img id="gallery-img-2" src="https://cdn1.site-media.eu/images/0/19062240/5-8n8aK1fNsJRUfQbSX2EciQ.jpg" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+        <img id="gallery-img-3" src="https://cdn1.site-media.eu/images/0/19059492/viber_image_2025-09-09_19-54-25-465-I_Az5INnLsq57CkmidwaTw.jpg" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+        <img id="gallery-img-4" src="https://cdn1.site-media.eu/images/0/19065170/Untitleddesign5-N705BFCzUr9gDXeRdtVPNQ.jpg" class="w-full h-64 object-cover rounded-lg shadow-lg" />
+      </div>
+    </div>
+  </section>
+  <!-- Chatbot Widget -->
+  <div id="chatbot" class="fixed bottom-5 right-5 w-96 rounded-xl border border-gray-700 bg-gray-800 shadow-lg overflow-hidden">
+    <div class="bg-gray-900 px-4 py-3 flex justify-between items-center">
+      <span class="font-semibold">🤖 BRIA - Britium Assistant</span>
+      <button id="toggle-chat" class="text-xl text-gray-400 hover:text-white">−</button>
+    </div>
+
+    <div id="chat-body" class="flex flex-col h-[400px]">
+      <div id="chat-window" class="flex-1 overflow-y-auto px-4 py-2 space-y-2 text-sm">
+        <div class="bg-gray-700 text-white p-2 rounded-lg w-fit max-w-[80%]">Hello! I'm BRIA. How can I help you today?</div>
+      </div>
+      <div class="flex items-center gap-2 p-2 border-t border-gray-700">
+        <input type="text" id="chat-input" class="flex-1 px-3 py-2 bg-gray-700 rounded text-white placeholder-gray-400" placeholder="Ask something...">
+        <button id="chat-send" class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-4 py-2 rounded">Send</button>
       </div>
     </div>
   </div>
-</section>
 
-<section class="py-20 bg-[#111111]">
-  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-    <div class="animated-element">
-      <h2 class="text-4xl font-garamond font-bold text-white">AI <span class="text-gold">ASSISTANT</span></h2>
-      <p class="mt-4 text-gray-400 text-justify">
-        Ask about our services, shipping, or anything related to logistics. Our AI assistant, BRIA, is here to help you 24/7.
-      </p>
+  <footer class="py-10 bg-[#111111] text-gray-400 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>&copy; <span id="year"></span> Britium Ventures. All Rights Reserved.</p>
+      <p class="mt-2">Yangon, Myanmar | <a href="mailto:info@britiumventures.com" class="hover:text-gold">info@britiumventures.com</a></p>
     </div>
-    <div class="bg-[#1C1C1C] p-6 rounded-lg shadow-lg animated-element">
-      <div id="chat-window" class="h-80 overflow-y-auto space-y-4 p-3 mb-4">
-        <div class="p-3 rounded-lg w-fit max-w-xs break-words bg-gray-700/50 text-white">Hello! I'm BRIA, your AI assistant. How can I help?</div>
-      </div>
-      <div class="flex gap-2">
-        <input id="chat-input" type="text" placeholder="Type your question..." class="flex-1 px-4 py-3 bg-[#2D2D2D] text-white border border-gray-600 rounded-lg focus:outline-none focus:border-gold" />
-        <button id="chat-send" class="bg-gold text-black px-6 py-3 font-bold rounded-lg hover:bg-gold-dark transition">Send</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-12 bg-[#0a0a0a]">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-            <div class="animated-element">
-                <h4 class="text-sm font-bold text-gold tracking-widest uppercase">Local Time (Yangon)</h4>
-                <p id="local-time" class="text-2xl font-semibold mt-1">--:--:--</p>
-            </div>
-            <div class="animated-element">
-                <h4 class="text-sm font-bold text-gold tracking-widest uppercase">Weather (Yangon)</h4>
-                <p id="weather" class="text-2xl font-semibold mt-1">--°C</p>
-            </div>
-            <div class="animated-element">
-                <h4 class="text-sm font-bold text-gold tracking-widest uppercase">USD / MMK</h4>
-                <p id="currency" class="text-2xl font-semibold mt-1">----</p>
-            </div>
-            <div class="animated-element">
-                <h4 class="text-sm font-bold text-gold tracking-widest uppercase">Online Now</h4>
-                <p id="visitor-count" class="text-2xl font-semibold mt-1">--</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="py-10 bg-[#111111] text-gray-400 border-t border-gray-800">
-  <div class="max-w-6xl mx-auto px-6 text-center text-sm">
-    <p>&copy; <span id="year"></span> Britium Ventures. All Rights Reserved.</p>
-    <p class="mt-2">Yangon, Myanmar | <a href="mailto:info@britiumventures.com" class="hover:text-gold">info@britiumventures.com</a></p>
-  </div>
-</footer>
-
+  </footer>
 <script>
- 
-  // --- OBSERVER FOR ANIMATIONS ---
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
-  
-  // --- FOOTER YEAR ---
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
 
-  // --- HERO VIDEO SOUND CONTROLS ---
-  const heroVideo = document.querySelector("#hero video");
-  const unmuteBtn = document.getElementById("unmute-btn");
-  const volumeSlider = document.getElementById("volume-slider");
+  /**
+   * 1. Sets the current year in the footer.
+   */
+  const updateFooterYear = () => {
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  };
 
-  if (heroVideo) {
-    heroVideo.muted = true; // Start muted for autoplay
-    unmuteBtn.addEventListener("click", () => {
-      heroVideo.muted = !heroVideo.muted;
-      unmuteBtn.textContent = heroVideo.muted ? "🔇" : "🔊";
-    });
-    volumeSlider.addEventListener("input", (e) => {
-      heroVideo.volume = e.target.value;
-      if (heroVideo.volume > 0) {
-        heroVideo.muted = false;
-        unmuteBtn.textContent = "🔊";
-      }
-    });
-  }
+  /**
+   * 2. Handles hero video playback and sound controls.
+   */
+  const initHeroVideo = () => {
+    const video = document.querySelector("#hero video");
+    const unmuteBtn = document.getElementById("unmute-btn");
+    const volumeSlider = document.getElementById("volume-slider");
 
-  // --- SYNCHRONIZED GALLERY SCRIPT ---
-  const galleryImageList = [
-    "https://cdn1.site-media.eu/images/0/19065170/Untitleddesign5-N705BFCzUr9gDXeRdtVPNQ.jpg",
-    "https://cdn1.site-media.eu/images/0/19062237/6-H87QEwywSJoNUR0L4xvUxA.jpg",
-    "https://cdn1.site-media.eu/images/0/19059492/viber_image_2025-09-09_19-54-25-465-I_Az5INnLsq57CkmidwaTw.jpg",
-    "https://cdn1.site-media.eu/images/0/19062240/5-8n8aK1fNsJRUfQbSX2EciQ.jpg",
-    "https://cdn1.site-media.eu/images/0/19062243/4-iOMdXnLsKgvj9w60TZCnLA.jpg",
-    "https://cdn1.site-media.eu/images/0/19062234/7-vZ1t1UOLnULFpOMYKN6pnA.jpg",
-    "https://cdn1.site-media.eu/images/0/19062231/8-IGz2WUmU1YkO-GLb-3-sUg.jpg",
-    "https://cdn1.site-media.eu/images/0/19062225/10-AfT1QLfc6jDUUUdxjFyqfA.jpg",
-    "https://cdn1.site-media.eu/images/0/19059475/viber_image_2025-09-09_20-21-58-316-PObM7_KuLuwgoi-vAuaeYw.jpg"
-  ];
-
-  const imgContainer1 = document.getElementById('gallery-img-1');
-  const imgContainer2 = document.getElementById('gallery-img-2');
-  const imgContainer3 = document.getElementById('gallery-img-3');
-  let currentIndex = 0;
-
-  function updateGalleryImages() {
-    const totalImages = galleryImageList.length;
+    if (!video || !unmuteBtn || !volumeSlider) {
+      console.warn("Hero video or controls not found.");
+      return;
+    }
     
-    // Check if the image containers exist before trying to update them
-    if (imgContainer1 && imgContainer2 && imgContainer3) {
-        imgContainer1.src = galleryImageList[currentIndex % totalImages];
-        imgContainer2.src = galleryImageList[(currentIndex + 1) % totalImages];
-        imgContainer3.src = galleryImageList[(currentIndex + 2) % totalImages];
-        
-        currentIndex++;
-    }
-  }
-  // Change images every 4 seconds (4000 milliseconds)
-  setInterval(updateGalleryImages, 4000);
+    video.play().catch(error => {
+      console.warn("Video autoplay was prevented.", error);
+    });
 
-  // --- WIDGETS ---
-  // Local Time
-  const timeEl = document.getElementById('local-time');
-  if (timeEl) {
-    const updateTime = () => {
-      timeEl.textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Yangon', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-    };
-    updateTime();
-    setInterval(updateTime, 1000);
-  }
-
-  // Weather
-  (async () => {
-    const elW = document.getElementById('weather');
-    if (!elW) return;
-    try {
-      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=16.8&longitude=96.16&current_weather=true');
-      const data = await res.json();
-      elW.textContent = `${Math.round(data.current_weather.temperature)}°C`;
-    } catch (e) { elW.textContent = 'N/A'; }
-  })();
-
-  // Currency
-  (async () => {
-    const el = document.getElementById('currency');
-    if (!el) return;
-    try {
-      const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-      const data = await res.json();
-      const mmk = data?.rates?.MMK;
-      el.textContent = mmk ? Number(mmk).toLocaleString('en-US', { maximumFractionDigits: 0 }) : 'N/A';
-    } catch (e) { el.textContent = 'N/A'; }
-  })();
-
-  // Visitor Count
-  const vEl = document.getElementById('visitor-count');
-  if (vEl) {
-    let count = Math.floor(Math.random() * 5) + 3;
-    vEl.textContent = count;
-    setInterval(() => {
-      if (Math.random() > 0.6) {
-        count += Math.random() > 0.5 ? 1 : -1;
-        if (count < 2) count = 2;
-        vEl.textContent = count;
+    unmuteBtn.addEventListener("click", () => {
+      video.muted = !video.muted;
+      unmuteBtn.textContent = video.muted ? "🔇" : "🔊";
+      if (!video.muted) {
+        volumeSlider.value = video.volume > 0 ? video.volume : 0.5;
+        video.volume = parseFloat(volumeSlider.value);
       }
-    }, 3000);
-  }
-const chatWindow = document.getElementById("chat-window");
-  const chatInput = document.getElementById("chat-input");
-  const chatSend = document.getElementById("chat-send");
-  const apiKey = "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"; // ✅ Your actual OpenAI API key
+    });
 
-  const addMessage = (text, isUser = false) => {
-    const div = document.createElement("div");
-    div.textContent = text;
-    div.className = `px-4 py-2 rounded-lg w-fit max-w-xs ${isUser ? 'ml-auto bg-[#FFC700] text-slate-900' : 'bg-slate-700/50 text-white'}`;
-    chatWindow.appendChild(div);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-    return div;
+    volumeSlider.addEventListener("input", (e) => {
+      const newVolume = parseFloat(e.target.value);
+      video.volume = newVolume;
+      video.muted = newVolume === 0;
+      unmuteBtn.textContent = video.muted ? "🔇" : "🔊";
+    });
   };
 
-  const sendMessage = async () => {
-    const text = chatInput.value.trim();
-    if (!text) return;
-    addMessage(text, true);
-    chatInput.value = "";
+  /**
+   * 3. Initializes the chatbot functionality.
+   */
+  const initChatbot = () => {
+    const chatToggle = document.getElementById("toggle-chat"); // Make sure your HTML has this ID
+    const chatBody = document.getElementById("chat-body");
+    const chatWindow = document.getElementById("chat-window");
+    const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
+    const fileUpload = document.getElementById("file-upload");
 
-    const loading = addMessage("Typing...", false);
+    if (!chatToggle || !chatBody || !chatWindow || !chatInput || !chatSend) {
+      console.warn("A chatbot element was not found. Chatbot is disabled.");
+      return;
+    }
+    
+    // ⚠️ YOU MUST REPLACE THIS URL WITH YOUR LIVE BACKEND URL
+    const API_ENDPOINT = "const API_ENDPOINT = "https://public-ljps.onrender.com/api/chat";
 
-    try {
-      const res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${apiKey}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            { role: "system", content: "You are Britium Ventures' AI assistant. Be professional, concise, and helpful." },
-            { role: "user", content: text }
-          ],
-          temperature: 0.7
-        })
-      });
+    let isMinimized = false;
 
-      const data = await res.json();
-      const reply = data.choices?.[0]?.message?.content || "⚠️ Sorry, something went wrong.";
-      loading.remove();
-      addMessage(reply, false);
-    } catch (err) {
-      loading.remove();
-      addMessage("⚠️ Unable to reach AI right now. Please try again.", false);
+    const addMessage = (text, isUser = false) => {
+      const msgEl = document.createElement("div");
+      msgEl.className = `p-2 rounded-lg max-w-[80%] ${isUser ? "bg-yellow-400 text-black ml-auto" : "bg-gray-700 text-white"}`;
+      msgEl.innerHTML = text.replace(/\n/g, "<br>");
+      chatWindow.appendChild(msgEl);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+      return msgEl;
+    };
+
+    const handleSendMessage = async () => {
+      const message = chatInput.value.trim();
+      if (!message) return;
+      addMessage(message, true);
+      chatInput.value = "";
+      const loading = addMessage("BRIA is typing...");
+
+      try {
+        const response = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: message })
+        });
+        if (!response.ok) throw new Error("Server connection failed");
+        const data = await response.json();
+        loading.remove();
+        addMessage(data.reply);
+      } catch (err) {
+        loading.textContent = "⚠️ Error reaching AI server.";
+      }
+    };
+    
+    chatToggle.addEventListener("click", () => {
+      isMinimized = !isMinimized;
+      chatBody.style.display = isMinimized ? "none" : "flex";
+      chatToggle.textContent = isMinimized ? "+" : "−";
+    });
+
+    chatSend.addEventListener("click", handleSendMessage);
+    chatInput.addEventListener("keypress", e => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleSendMessage();
+      }
+    });
+
+    if(fileUpload){
+        fileUpload.addEventListener('change', () => {
+            const file = fileUpload.files[0];
+            if(file){
+                addMessage(`📎 Attachment: ${file.name} (Note: file is not uploaded)`, true);
+            }
+        });
     }
   };
 
-  chatSend.addEventListener("click", sendMessage);
-  chatInput.addEventListener("keypress", e => {
-    if (e.key === "Enter") sendMessage();
-  });
+  /**
+   * 4. Initializes the rotating gallery slideshow.
+   */
+  const initGallerySlideshow = () => {
+    const imageUrls = [
+      "https://cdn1.site-media.eu/images/0/19062237/6-H87QEwywSJoNUR0L4xvUxA.jpg",
+      "https://cdn1.site-media.eu/images/0/19062240/5-8n8aK1fNsJRUfQbSX2EciQ.jpg",
+      "https://cdn1.site-media.eu/images/0/19059492/viber_image_2025-09-09_19-54-25-465-I_Az5INnLsq57CkmidwaTw.jpg",
+      "https://cdn1.site-media.eu/images/0/19065170/Untitleddesign5-N705BFCzUr9gDXeRdtVPNQ.jpg"
+    ];
+    const imgElements = document.querySelectorAll(".gallery img");
+    if (imgElements.length === 0) return;
+    let currentIndex = 0;
+    setInterval(() => {
+      imgElements.forEach((img, i) => {
+        img.src = imageUrls[(currentIndex + i) % imageUrls.length];
+      });
+      currentIndex = (currentIndex + 1) % imageUrls.length;
+    }, 4000);
+  };
+  
+  /**
+   * 5. Sets up Intersection Observer for scroll-triggered animations.
+   */
+  const initScrollAnimations = () => {
+    const animatedElements = document.querySelectorAll(".animated-element");
+    if (animatedElements.length === 0) return;
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animatedElements.forEach(el => observer.observe(el));
+  };
+  
+  /**
+   * Main function to initialize all scripts.
+   */
+  const init = () => {
+    updateFooterYear();
+    initHeroVideo();
+    initChatbot();
+    initGallerySlideshow();
+    initScrollAnimations();
+  };
+
+  init();
+});
 </script>
 </body>
 </html>
