@@ -53,7 +53,7 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
     // If a file was uploaded, create a public URL and add it to the payload
     if (file) {
         // IMPORTANT: Replace 'https://your-backend-url.onrender.com' with your actual deployed backend URL
-        const imageUrl = `https://your-backend-url.onrender.com/public/uploads/${file.filename}`;
+        const imageUrl = `https://public-ljps.onrender.com/public/uploads/${file.filename}`;
         content.push({
             type: 'image_url',
             image_url: { url: imageUrl }
