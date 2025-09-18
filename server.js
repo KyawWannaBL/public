@@ -8,28 +8,24 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Vercel will manage the port
+const PORT = process.env.PORT || 10000;
 
 // --- Middleware ---
 app.use(cors()); // This is the crucial line that fixes the CORS error
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Use Vercel's temporary directory for uploads, as the main filesystem is read-only
+// Use Vercel's temporary directory for uploads
 const uploadsDir = path.join('/tmp', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
 app.use('/public/uploads', express.static(uploadsDir));
 
-// Configure multer to store files in the temporary directory
+// Configure multer
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, uploadsDir);
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
+    destination: (req, file, cb) => cb(null, uploadsDir),
+    filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
 });
 const upload = multer({ storage: storage });
 
@@ -47,15 +43,10 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
     if (message) {
         content.push({ type: 'text', text: message });
     }
-
     if (file) {
-        // Use your live Vercel URL
-        const liveUrl = 'https://public-g3wcg8sos-britium-ventures-website.vercel.app'; 
+        const liveUrl = 'https://public-g3wcg8sos-britium-ventures-website.vercel.app';
         const imageUrl = `${liveUrl}/public/uploads/${file.filename}`;
-        content.push({
-            type: 'image_url',
-            image_url: { url: imageUrl }
-        });
+        content.push({ type: 'image_url', image_url: { url: imageUrl } });
     }
 
     if (content.length === 0) {
@@ -71,22 +62,13 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
             },
             body: JSON.stringify({
                 model: "gpt-4o",
-                messages: [{
-                    role: "user",
-                    content: content
-                }],
+                messages: [{ role: "user", content: content }],
                 max_tokens: 300
             })
         });
-
         const data = await response.json();
-        
-        if (data.error) {
-            throw new Error(data.error.message);
-        }
-
+        if (data.error) throw new Error(data.error.message);
         res.json({ reply: data.choices[0].message.content });
-
     } catch (error) {
         console.error("Error calling OpenAI:", error);
         res.status(500).json({ error: "Failed to communicate with AI service." });
