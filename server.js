@@ -2,22 +2,28 @@
 require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
-const cors = require('cors');
+const cors = require('cors'); // Make sure cors is required
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000; // Vercel will manage the port
 
-// --- File Upload Setup (Multer) ---
+// --- Middleware ---
+app.use(cors()); // This is the crucial line that fixes the CORS error
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true }));
+
 // Create a public 'uploads' directory if it doesn't exist
-const uploadsDir = path.join(__dirname, 'public/uploads');
+// NOTE: On Vercel, this directory is temporary and will be cleared on redeploy.
+const uploadsDir = path.join('/tmp', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
+app.use('/public/uploads', express.static(uploadsDir));
 
-// Configure multer to store files in 'public/uploads'
+// Configure multer to store files in the temporary directory
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, uploadsDir);
@@ -28,32 +34,25 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// --- Middleware ---
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Serve the uploaded files statically
-app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
-
-
 // --- API Endpoint ---
 app.post('/api/chat', upload.single('image'), async (req, res) => {
-    const { message } = req.body; // User's text message
-    const file = req.file; // The uploaded file object from multer
+    const { message } = req.body;
+    const file = req.file;
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+    if (!OPENAI_API_KEY) {
+        return res.status(500).json({ error: 'API key is not configured on the server.' });
+    }
+
     const content = [];
-    
-    // Add the text message to the content payload
     if (message) {
         content.push({ type: 'text', text: message });
     }
 
-    // If a file was uploaded, create a public URL and add it to the payload
     if (file) {
-        // IMPORTANT: Replace 'https://your-backend-url.onrender.com' with your actual deployed backend URL
-        const imageUrl = `https://public-ljps.onrender.com/public/uploads/${file.filename}`;
+        // IMPORTANT: Use your live Vercel URL
+        const liveUrl = 'https://public-g3wcg8sos-britium-ventures-website.vercel.app'; 
+        const imageUrl = `${liveUrl}/public/uploads/${file.filename}`;
         content.push({
             type: 'image_url',
             image_url: { url: imageUrl }
@@ -72,18 +71,21 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "gpt-4o", // Using the correct model
-                messages: [
-                    {
-                        role: "user",
-                        content: content // The array containing text and/or image URL
-                    }
-                ],
+                model: "gpt-4o",
+                messages: [{
+                    role: "user",
+                    content: content
+                }],
                 max_tokens: 300
             })
         });
-        
+
         const data = await response.json();
+        
+        if (data.error) {
+            throw new Error(data.error.message);
+        }
+
         res.json({ reply: data.choices[0].message.content });
 
     } catch (error) {
