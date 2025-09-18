@@ -8,15 +8,14 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Vercel will manage the port
+const PORT = process.env.PORT || 10000;
 
 // --- Middleware ---
 app.use(cors()); // This is the crucial line that fixes the CORS error
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Create a public 'uploads' directory if it doesn't exist
-// NOTE: On Vercel, this directory is temporary and will be cleared on redeploy.
+// Use Vercel's temporary directory for uploads
 const uploadsDir = path.join('/tmp', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
@@ -50,7 +49,7 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
     }
 
     if (file) {
-        // IMPORTANT: Use your live Vercel URL
+        // Use your live Vercel URL
         const liveUrl = 'https://public-g3wcg8sos-britium-ventures-website.vercel.app'; 
         const imageUrl = `${liveUrl}/public/uploads/${file.filename}`;
         content.push({
