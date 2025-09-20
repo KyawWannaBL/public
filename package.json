@@ -1,23 +1,19 @@
 {
-  "name": "britium-chat",
+  "name": "britium-ventures-chat-backend",
   "version": "1.0.0",
+  "description": "Backend server for the Britium Ventures AI Chatbot.",
   "main": "server.js",
-  "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "build": "echo 'No build step required'"
   },
+  "author": "Britium Ventures",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.6.1",
-    "express": "^4.21.2",
-    "multer": "^2.0.2",
-    "node-fetch": "^2.6.7",
-    "nodemailer": "^7.0.6",
-    "resend": "^6.1.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.7.0"
   }
 }
