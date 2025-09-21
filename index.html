@@ -223,7 +223,7 @@
     const list=$('#chatMessages'),input=$('#chatInput'),send=$('#chatSend');
     if(list&&input&&send){
       // ** THIS IS THE CORRECT, FINAL ENDPOINT FOR YOUR RENDER SERVER **
-      const API_ENDPOINT = 'https://public-3z73.onrender.com/api/chat';
+      const API_ENDPOINT = 'https://public-2-67qo.onrender.com/api/chat';
       
       function bubble(text, who){const w=document.createElement('div');w.className='flex '+(who==='user'?'justify-end':'justify-start');const b=document.createElement('div');b.className=(who==='user'?'bg-amber-400 text-black':'bg-[#1e293b] text-white')+' rounded-lg px-4 py-2 max-w-lg';b.innerHTML=text.replace(/\n/g,'<br>');w.appendChild(b);list.appendChild(w);list.scrollTop=list.scrollHeight;return b;}
       bubble("Hello! I'm BRIA. Ask me about tariffs, shipping, or market insights.",'ai');
