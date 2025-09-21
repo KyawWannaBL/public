@@ -8,21 +8,21 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Correct port for Render
+const PORT = process.env.PORT || 10000;
 
 // --- Middleware ---
 app.use(cors()); // Allows your website to connect to the server
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Use Render's temporary directory for file uploads, as the main filesystem is read-only
+// Use Vercel's temporary directory for file uploads
 const uploadsDir = path.join('/tmp', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
 app.use('/public/uploads', express.static(uploadsDir));
 
-// Configure multer to store files in the temporary directory
+// Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, uploadsDir),
     filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
@@ -46,7 +46,7 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
 
     if (file) {
         // ** FINAL URL CORRECTION **
-        const liveUrl = 'https://public-3z73.onrender.com'; 
+        const liveUrl = 'https://public-zvpb.vercel.app'; 
         const imageUrl = `${liveUrl}/public/uploads/${file.filename}`;
         content.push({
             type: 'image_url',
