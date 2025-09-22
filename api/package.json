@@ -1,7 +1,7 @@
 {
-  "name": "britium-ventures-final",
+  "name": "britium-ventures-final-backend",
   "version": "1.0.0",
-  "description": "AI Chatbot server for Britium Ventures.",
+  "description": "AI Chatbot server for the Britium Ventures website.",
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js"
@@ -15,3 +15,4 @@
     "node-fetch": "^2.7.0"
   }
 }
+

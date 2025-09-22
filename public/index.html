@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Britium Ventures | Integrated Trade & Logistics Partner</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" />
+
+  <!-- Fonts, Swiper, and Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=garet@800&f[]=helvetica-world@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Global + Page CSS -->
+  <style>
+    :root { 
+      --ink: #030712; 
+      --fg: #e2e8f0; 
+      --amber: #fbbf24; 
+      --panel: #111827; 
+      --blue: #172a46; 
+    }
+    body { 
+      background-color: var(--ink); 
+      color: var(--fg); 
+      font-family: 'Poppins', sans-serif; 
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    .font-garet { font-family: 'Garet', sans-serif; font-weight: 800; }
+    .font-helvetica { font-family: 'Helvetica World', sans-serif; font-weight: 700; }
+
+    .metallic-gold-text {
+      color: #ffd700;
+      text-transform: uppercase;
+      text-shadow: 
+        0px 1px 1px #a27a00,
+        0px 2px 2px #a27a00,
+        0px 3px 3px #a27a00,
+        0px 4px 4px rgba(0,0,0,0.4),
+        0px 0px 15px rgba(255, 215, 0, 0.5);
+      animation: glitter 2s ease-in-out infinite;
+    }
+    @keyframes glitter {
+      0%, 100% { text-shadow: 0px 1px 1px #a27a00, 0px 2px 2px #a27a00, 0px 3px 3px #a27a00, 0px 4px 4px rgba(0,0,0,0.4), 0px 0px 15px rgba(255, 215, 0, 0.5); }
+      50% { text-shadow: 0px 1px 1px #a27a00, 0px 2px 2px #a27a00, 0px 3px 3px #a27a00, 0px 4px 4px rgba(0,0,0,0.4), 0px 0px 30px rgba(255, 225, 100, 0.8); }
+    }
+
+    .acrylic-panel {
+      background: rgba(17, 34, 64, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      padding: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(3, 7, 18, 0.6); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .brand { font-family: 'Garet', sans-serif; font-weight: 800; font-size: 1.75rem; color: #fff; text-decoration: none; text-transform: uppercase;}
+    .brand span { color: var(--amber); }
+    .main-nav { display: none; } @media (min-width: 1024px) { .main-nav { display: flex; gap: 1.5rem; align-items: center;} }
+    .main-nav a { color: var(--fg); text-decoration: none; } .main-nav a:hover { color: var(--amber); }
+    .mobile-btn { display: block; color: #fff; background: none; border: none; cursor: pointer; } @media (min-width: 1024px) { .mobile-btn { display: none; } }
+    .mpanel { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100%; background: var(--panel); transition: right 0.4s ease-in-out; z-index: 60; }
+    .mpanel.is-open { right: 0; }
+    .mclose { position: absolute; top: 1.5rem; right: 1.5rem; color: #fff; background: none; border: none; cursor: pointer;}
+    .mnav { display: flex; flex-direction: column; gap: 1.5rem; padding: 6rem 2rem; } .mnav a { font-size: 1.25rem; }
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(3, 7, 18, 0.7); z-index: -1; }
+    .hero-content { z-index: 1; }
+    .hero-title { font-size: 3rem; line-height: 1.1; } @media (min-width: 768px) { .hero-title { font-size: 5rem; } }
+    .hero-sub { max-width: 650px; margin: 1.5rem auto 0; color: #d1d5db; }
+    .hero-actions { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; }
+    .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; cursor: pointer;}
+    .btn-primary { background-color: var(--amber); color: var(--ink); } .btn-primary:hover { background-color: #fbbf24; transform: translateY(-2px); }
+    .btn-ghost { border: 2px solid var(--amber); color: var(--amber); } .btn-ghost:hover:not(:disabled) { background-color: var(--amber); color: var(--ink); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .section { padding: 6rem 0; }
+    .stitle { font-size: 2.5rem; line-height: 1.2; }
+    .ssub { max-width: 600px; margin: 1rem auto 0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; } @media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    .site-footer { padding: 4rem 0 2rem; background-color: #000; }
+    .footer-grid { display: grid; gap: 2rem; text-align: center; } @media (min-width:768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); text-align: left; } }
+    .site-footer h4 { color: #fff; font-weight: 600; margin-bottom: 1rem; } .site-footer a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; margin-top: 2rem; text-align: center; } @media (min-width: 768px) { .footer-bottom { display: flex; justify-content: space-between; } }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+    .gallery-slider { width: 100%; padding-top: 50px; padding-bottom: 50px; }
+    .swiper-slide { background-position: center; background-size: cover; width: 320px; height: 400px; border-radius: 1rem; box-shadow: 0 15px 50px rgba(0,0,0,0.5); }
+    .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .swiper-button-next, .swiper-button-prev { color: var(--amber) !important; }
+    .swiper-pagination-bullet-active { background-color: var(--amber) !important; }
+    .gemini-result { min-height: 120px; background: rgba(3, 7, 18, 0.5); border-radius: 0.5rem; padding: 1rem; margin-top: 1rem; text-align: left; line-height: 1.5; color: #d1d5db;}
+    .hero-audio { position: absolute; right: 1rem; bottom: 1rem; z-index: 3; display: flex; align-items: center; gap: .5rem; background: rgba(10,25,47,.7); border: 1px solid rgba(251,191,36,.5); color: #fff; padding: .5rem .75rem; border-radius: .75rem; backdrop-filter: blur(6px); }
+    .vol { width: 110px; height: 4px; appearance: none; background: #334155; border-radius: 999px; }
+    .vol::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--amber); border: 2px solid #1f2937; cursor: pointer; }
+
+  </style>
+</head>
+<body class="antialiased">
+
+  <header class="site-header">
+    <div class="nav-row container">
+      <a href="index.html" class="brand flex items-center gap-3">
+        <img src="https://cdn1.site-media.eu/images/0/19084582/LOGO.PNG-9iXCvFfz1_iDnJ1k8_JD5g.png" alt="Britium Logo" class="h-9 w-9">
+        BRITIUM <span>VENTURES</span>
+      </a>
+      <nav class="main-nav">
+          <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="careers.html">Careers</a><a href="capabilities.html">Capabilities</a><a href="solutions.html">Solutions</a><a href="products.html">Products</a><a href="markets.html">Markets</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="chat.html" class="text-amber-400 font-semibold">AI Chat</a>
+      </nav>
+      <button id="mobile-menu-button" class="mobile-btn" aria-label="Open menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+    <div id="mobile-menu" class="mpanel">
+      <button id="mobile-menu-close" class="mclose" aria-label="Close menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <nav class="mnav">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="careers.html">Careers</a><a href="capabilities.html">Capabilities</a><a href="solutions.html">Solutions</a><a href="products.html">Products</a><a href="markets.html">Markets</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="chat.html">AI Chat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <video id="homeHeroVideo" class="hero-video" autoplay loop playsinline src="https://cdn1.site-media.eu/images/0/18721110/IntegratedTradeVenturesPartner-bRCOg5hk15kza40uhsphbg.mp4"></video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in acrylic-panel">
+        <h1 class="hero-title font-garet metallic-gold-text">Confidence in Motion</h1>
+        <p class="hero-sub font-helvetica uppercase">Simplifying complexity and driving trade across Myanmar and beyond.</p>
+        <div class="hero-actions"><a href="contact.html" class="btn btn-primary">Get a Consultation</a></div>
+      </div>
+       <div class="hero-audio">
+        <button id="homeHeroMuteBtn" type="button" aria-label="Toggle audio">🔈 Unmute</button>
+        <input id="homeHeroVolume" class="vol" type="range" min="0" max="1" step="0.01" value="0.18">
+      </div>
+    </section>
+
+    <!-- GEMINI-POWERED DASHBOARD (WIDGETS) -->
+    <section id="gadgets" class="section">
+      <div class="container text-center">
+        <div class="acrylic-panel max-w-4xl mx-auto">
+          <h2 class="stitle font-garet metallic-gold-text">AI-Powered Trade Dashboard</h2>
+          <p class="ssub font-helvetica uppercase">Real-time, intelligent insights to keep you ahead of the market.</p>
+        </div>
+        <div class="grid-2 mt-12 gap-8">
+          <div class="service-card p-6 rounded-xl fade-in flex flex-col">
+            <h3 class="font-helvetica text-xl font-semibold mb-2 text-center metallic-gold-text">✨ Market Snapshot</h3>
+            <p class="text-slate-400 text-center text-sm mb-4">Latest trade news for Myanmar, powered by Google Search.</p>
+            <div id="market-snapshot-result" class="gemini-result flex-1">Click the button to generate the latest market summary...</div>
+            <button id="market-snapshot-btn" class="btn btn-ghost w-full mt-4">Generate News Summary</button>
+          </div>
+          <div class="service-card p-6 rounded-xl fade-in flex flex-col" style="transition-delay:100ms">
+            <h3 class="font-helvetica text-xl font-semibold mb-2 text-center metallic-gold-text">✨ Document Helper</h3>
+             <select id="doc-selector" class="w-full bg-gray-700 text-white p-2 rounded mb-4 border border-gray-600 focus:ring-amber-400 focus:border-amber-400 focus:outline-none">
+                <option value="Bill of Lading">Bill of Lading</option><option value="Letter of Credit">Letter of Credit</option><option value="Certificate of Origin">Certificate of Origin</option><option value="Commercial Invoice">Commercial Invoice</option>
+            </select>
+            <div id="doc-helper-result" class="gemini-result flex-1">Select a document for a simple explanation.</div>
+            <button id="doc-helper-btn" class="btn btn-ghost w-full mt-4">Explain This Document</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ENHANCED PHOTO GALLERY -->
+    <section id="photo-gallery" class="section panel">
+        <div class="container text-center">
+            <div class="acrylic-panel max-w-4xl mx-auto">
+                <h2 class="stitle font-garet metallic-gold-text">Our Operations in Action</h2>
+                <p class="ssub font-helvetica uppercase">A glimpse into our dedicated team and global logistics network.</p>
+            </div>
+            <div class="swiper gallery-slider fade-in mt-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19097425/6-tRSGV700Abc5HlHdinLFRw.jpg" alt="Britium Ventures Headoffice"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19084602/GroupPic-nu-LWNAI62yTnEktRq9tDg.png" alt="Britium Ventures Group Photos"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19341309/5-rA5iUmklfVGK9vfHAHZAGg.jpg" alt="Britium Gallery"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19341304/4-HAK8F_Z1SNmO2WerlSmRqA.jpg" alt="Britium Ventures office"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19341292/7-88SSifJuTAZeE3p3F9EOOg.jpg" alt="Britium Ventures office"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19086738/BritiumGalleryclip4-wPlcCdMHteCm1JGfWIsYbg.jpg" alt="Britium Gallery"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19086726/JusticeinHarmony1-hQ8DGBE8QBCO77mFrl1ztQ.png" alt="Britium Gallery"></div>
+                    <div class="swiper-slide"><img src="https://cdn1.site-media.eu/images/0/19084635/ChatGPTImageJun29202503_32_41PM-Recovered-9Kii4R-snWKXo28PIQV3HA.png" alt="Britium Ventures office"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRIA AI CHAT -->
+    <section id="britium-ai" class="section">
+      <div class="container text-center">
+          <div class="acrylic-panel max-w-4xl mx-auto">
+              <h2 class="stitle font-garet metallic-gold-text">Meet BRIA: Your AI Trade Co-Pilot</h2>
+              <p class="ssub font-helvetica uppercase">Ask quick questions here or visit the full chat page for a richer experience.</p>
+          </div>
+          <div class="max-w-3xl mx-auto service-card rounded-xl p-4 md:p-8 fade-in mt-12">
+              <div id="chatMessages" class="h-96 overflow-y-auto mb-4 p-4 space-y-4"></div>
+              <div class="mt-4 flex">
+                  <input id="chatInput" type="text" placeholder="Ask BRIA a question..." class="w-full px-4 py-3 rounded-l-lg bg-[#0a192f] border border-blue-800 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400 text-white">
+                  <button id="chatSend" class="bg-amber-400 text-[#0a192f] font-semibold px-6 py-3 rounded-r-lg hover:bg-amber-500 transition-colors">Send</button>
+              </div>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+      <div class="container py-12">
+          <div class="footer-grid">
+              <div><h4 class="font-garet text-lg uppercase">Britium Ventures</h4><p>Leading trade & logistics partner for Myanmar and the region.</p></div>
+              <div><h4 class="font-garet text-lg uppercase">Company</h4><ul class="space-y-2"><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="careers.html">Career</a></li><li><a href="gallery.html">Photo Gallery</a></li></ul></div>
+              <div><h4 class="font-garet text-lg uppercase">Solutions</h4><ul class="space-y-2"><li><a href="capabilities.html">Capabilities</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="markets.html">Market</a></li><li><a href="chat.html">Britium AI Chat</a></li></ul></div>
+              <div><h4 class="font-garet text-lg uppercase">Products</h4><ul class="space-y-2"><li><a href="products.html">All Products</a></li></ul></div>
+          </div>
+          <div class="footer-bottom">
+              <p class="text-sm">&copy; <span id="bvYear"></span> Britium Ventures. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+    // --- Mobile Menu, Hero Audio, Animations ---
+    const mmBtn = $('#mobile-menu-button'), panel = $('#mobile-menu'), closeX = $('#mobile-menu-close');
+    if (mmBtn && panel && closeX) {
+        mmBtn.addEventListener('click', () => panel.classList.add('is-open'));
+        closeX.addEventListener('click', () => panel.classList.remove('is-open'));
+    }
+    const io = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    $$('.fade-in').forEach(el => io.observe(el));
+    const y=$('#bvYear');if(y)y.textContent=new Date().getFullYear();
+    const vid=$('#homeHeroVideo'), mute=$('#homeHeroMuteBtn'), vol=$('#homeHeroVolume');
+    if(vid&&mute&&vol){const W=.18; (async()=>{try{vid.volume=W; vol.value=W; vid.muted=false;await vid.play();mute.textContent='🔊 Mute';}catch{try{vid.muted=true;await vid.play();mute.textContent='🔈 Unmute';}catch{}}})();mute.addEventListener('click',()=>{vid.muted=!vid.muted;mute.textContent=vid.muted?'🔈 Unmute':'🔊 Mute';if(!vid.muted&&vid.volume===0){vid.volume=W;vol.value=W;}vid.play().catch(()=>{});});vol.addEventListener('input',()=>{const v=parseFloat(vol.value);vid.volume=v;if(v>0&&vid.muted){vid.muted=false;mute.textContent='🔊 Mute';vid.play().catch(()=>{});}});}
+
+    // --- ENHANCED GALLERY: Coverflow Effect ---
+    new Swiper('.gallery-slider', {
+      effect: 'coverflow', grabCursor: true, centeredSlides: true,
+      slidesPerView: 'auto', loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true, },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+
+    // --- Original BRIA Chatbot Logic ---
+    const list=$('#chatMessages'), input=$('#chatInput'), send=$('#chatSend');
+    if(list && input && send){
+      const chatEndpoint = '/api/chat'; // Using relative path for robustness
+      function bubble(text, who){ const w=document.createElement('div'); w.className='flex '+(who==='user'?'justify-end':'justify-start'); const b=document.createElement('div'); b.className=(who==='user'?'bg-amber-400 text-black':'bg-[#1e293b] text-white')+' rounded-lg px-4 py-2 max-w-lg'; b.innerHTML=text.replace(/\n/g,'<br>'); w.appendChild(b); list.appendChild(w); list.scrollTop=list.scrollHeight; return b; }
+      bubble("Hello! I'm BRIA. How can I help?",'ai');
+      async function sendMsg(){ const text=input.value.trim();if(!text)return;bubble(text,'user');input.value='';const t=bubble('Thinking…','ai');try{const r=await fetch(chatEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:text}]})});if(!r.ok)throw new Error();const d=await r.json();t.innerHTML=d.reply.replace(/\n/g,'<br>')||"Sorry, I couldn't process that.";}catch(e){t.textContent='Network error contacting AI.';}}
+      send.addEventListener('click',sendMsg);
+      input.addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+    }
+    
+    // --- NEW: GEMINI API DASHBOARD LOGIC ---
+    const geminiEndpoint = '/api/gemini';
+
+    async function getGeminiResponse(prompt, targetElement, buttonElement) {
+        targetElement.innerHTML = 'Generating...';
+        buttonElement.disabled = true;
+        try {
+            const response = await fetch(geminiEndpoint, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+            if (!response.ok) throw new Error(`Server error: ${response.status}`);
+            const data = await response.json();
+            targetElement.innerHTML = data.reply.replace(/\n/g, '<br>');
+        } catch (error) {
+            targetElement.innerHTML = 'Sorry, an error occurred while fetching insights.';
+        } finally {
+            buttonElement.disabled = false;
+        }
+    }
+
+    const marketBtn = $('#market-snapshot-btn'), marketResult = $('#market-snapshot-result');
+    if (marketBtn) marketBtn.addEventListener('click', () => getGeminiResponse("Using Google Search, provide a brief, one-paragraph market snapshot of the current logistics and trade news in Myanmar.", marketResult, marketBtn));
+
+    const docBtn = $('#doc-helper-btn'), docResult = $('#doc-helper-result'), docSelector = $('#doc-selector');
+    if (docBtn) docBtn.addEventListener('click', () => getGeminiResponse(`Explain what a "${docSelector.value}" is in the context of international trade. Keep it simple and clear, in about two or three sentences.`, docResult, docBtn));
+  });
+  </script>
+</body>
+</html>
+
