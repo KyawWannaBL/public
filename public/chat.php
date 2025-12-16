@@ -1,49 +1,70 @@
 <?php
 // chat.php
 header("Content-Type: application/json");
+// Security: Only allow your specific domain in production, or * for testing
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 
 require_once "config.php";
 
-// Get incoming JSON
+// Handle incoming JSON
 $input = json_decode(file_get_contents("php://input"), true);
-$userMessage = $input["message"] ?? "";
+$userMessage = trim($input["message"] ?? "");
 
 if (!$userMessage) {
-    echo json_encode(["error" => "No message provided."]);
+    echo json_encode(["reply" => "Please type a message."]);
     exit;
 }
 
-// OpenAI API call
-$ch = curl_init("https://api.openai.com/v1/chat/completions");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Content-Type: application/json",
-    "Authorization: Bearer " . OPENAI_API_KEY
-]);
-
+// Prepare OpenAI Payload
 $payload = [
-    "model" => "gpt-4o-mini",
+    "model" => "gpt-4o-mini", // Ensure you have access to this model
     "messages" => [
-        ["role" => "system", "content" => "You are BRIA, the AI assistant for Britium Ventures. Provide professional, concise answers on trade, logistics, customs, compliance, sourcing, and Myanmar markets."],
-        ["role" => "user", "content" => $userMessage]
+        [
+            "role" => "system",
+            "content" => "You are BRIA, Britium Ventures’ professional AI assistant. Answer concisely about trade, logistics, sourcing, compliance, and Myanmar markets in a formal yet friendly tone."
+        ],
+        [
+            "role" => "user",
+            "content" => $userMessage
+        ]
     ],
-    "max_tokens" => 300,
-    "temperature" => 0.7
+    "temperature" => 0.7,
+    "max_tokens" => 400
 ];
 
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+$ch = curl_init("https://api.openai.com/v1/chat/completions");
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_HTTPHEADER => [
+        "Content-Type: application/json",
+        "Authorization: Bearer " . OPENAI_API_KEY
+    ]
+]);
 
 $response = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo json_encode(["error" => curl_error($ch)]);
-    exit;
-}
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$curlError = curl_error($ch);
 curl_close($ch);
 
-$data = json_decode($response, true);
-$aiText = $data["choices"][0]["message"]["content"] ?? "⚠️ No response received.";
+// Error Handling
+if ($curlError) {
+    echo json_encode(["reply" => "Server Error: Connection failed ($curlError)"]);
+    exit;
+}
 
-echo json_encode(["reply" => $aiText]);
+if ($httpCode >= 400) {
+    $errorData = json_decode($response, true);
+    $errorMessage = $errorData['error']['message'] ?? "Unknown API Error";
+    echo json_encode(["reply" => "AI Error ($httpCode): $errorMessage"]);
+    exit;
+}
+
+// Success
+$data = json_decode($response, true);
+$reply = $data["choices"][0]["message"]["content"] ?? "I'm having trouble thinking right now.";
+
+echo json_encode(["reply" => $reply]);
+?>
