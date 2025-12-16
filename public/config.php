@@ -8,5 +8,5 @@ define("HR_EMAIL", "career@britiumventures.com");
 define("INFO_EMAIL", "info@britiumventures.com");
 <<<<<<< HEAD
 // If you use AI assistant (chat.php)
-("OPENAI_API_KEY", "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");
+("OPENAI_API_KEY", "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");
 ==
