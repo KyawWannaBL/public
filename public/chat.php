@@ -1,13 +1,11 @@
 <?php
-// chat.php
+// chat.php (Assistants API Version)
 header("Content-Type: application/json");
-// Security: Only allow your specific domain in production, or * for testing
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 
 require_once "config.php";
 
-// Handle incoming JSON
 $input = json_decode(file_get_contents("php://input"), true);
 $userMessage = trim($input["message"] ?? "");
 
@@ -16,55 +14,98 @@ if (!$userMessage) {
     exit;
 }
 
-// Prepare OpenAI Payload
-$payload = [
-    "model" => "gpt-4o-mini", // Ensure you have access to this model
-    "messages" => [
-        [
-            "role" => "system",
-            "content" => "You are BRIA, Britium Ventures’ professional AI assistant. Answer concisely about trade, logistics, sourcing, compliance, and Myanmar markets in a formal yet friendly tone."
-        ],
-        [
-            "role" => "user",
-            "content" => $userMessage
+// ---------------------------------------------------------
+// STEP 1: Create a Thread and Run the Assistant
+// ---------------------------------------------------------
+$runUrl = "https://api.openai.com/v1/threads/runs";
+$runData = [
+    "assistant_id" => OPENAI_ASSISTANT_ID,
+    "thread" => [
+        "messages" => [
+            [
+                "role" => "user",
+                "content" => $userMessage
+            ]
         ]
-    ],
-    "temperature" => 0.7,
-    "max_tokens" => 400
+    ]
 ];
 
-$ch = curl_init("https://api.openai.com/v1/chat/completions");
+$ch = curl_init($runUrl);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_POSTFIELDS => json_encode($runData),
     CURLOPT_HTTPHEADER => [
         "Content-Type: application/json",
-        "Authorization: Bearer " . OPENAI_API_KEY
+        "Authorization: Bearer " . OPENAI_API_KEY,
+        "OpenAI-Beta: assistants=v2" // Required for Assistants API
     ]
 ]);
 
 $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlError = curl_error($ch);
+if ($httpCode >= 400) {
+    echo json_encode(["reply" => "Error starting Assistant: " . $response]);
+    exit;
+}
+$runObj = json_decode($response, true);
+$threadId = $runObj['thread_id'];
+$runId = $runObj['id'];
 curl_close($ch);
 
-// Error Handling
-if ($curlError) {
-    echo json_encode(["reply" => "Server Error: Connection failed ($curlError)"]);
-    exit;
+// ---------------------------------------------------------
+// STEP 2: Poll (Wait) for the Assistant to Finish
+// ---------------------------------------------------------
+// Assistants are not instant. We must check status loop.
+$status = 'queued';
+$attempts = 0;
+
+while ($status !== 'completed' && $attempts < 20) {
+    sleep(1); // Wait 1 second between checks
+    $attempts++;
+
+    $checkUrl = "https://api.openai.com/v1/threads/$threadId/runs/$runId";
+    $ch = curl_init($checkUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => [
+            "Authorization: Bearer " . OPENAI_API_KEY,
+            "OpenAI-Beta: assistants=v2"
+        ]
+    ]);
+    $checkResp = curl_exec($ch);
+    curl_close($ch);
+
+    $checkObj = json_decode($checkResp, true);
+    $status = $checkObj['status'] ?? 'failed';
+
+    if ($status === 'failed' || $status === 'cancelled' || $status === 'expired') {
+        echo json_encode(["reply" => "Assistant failed to process request."]);
+        exit;
+    }
 }
 
-if ($httpCode >= 400) {
-    $errorData = json_decode($response, true);
-    $errorMessage = $errorData['error']['message'] ?? "Unknown API Error";
-    echo json_encode(["reply" => "AI Error ($httpCode): $errorMessage"]);
-    exit;
-}
+// ---------------------------------------------------------
+// STEP 3: Retrieve the Message
+// ---------------------------------------------------------
+$msgUrl = "https://api.openai.com/v1/threads/$threadId/messages";
+$ch = curl_init($msgUrl);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer " . OPENAI_API_KEY,
+        "OpenAI-Beta: assistants=v2"
+    ]
+]);
+$msgResp = curl_exec($ch);
+curl_close($ch);
 
-// Success
-$data = json_decode($response, true);
-$reply = $data["choices"][0]["message"]["content"] ?? "I'm having trouble thinking right now.";
+$msgObj = json_decode($msgResp, true);
+// Get the latest message (first in list)
+$replyText = $msgObj['data'][0]['content'][0]['text']['value'] ?? "No response content found.";
 
-echo json_encode(["reply" => $reply]);
+// Remove any citations like 【4:0†source】 if they appear
+$replyText = preg_replace('/【.*?】/', '', $replyText);
+
+echo json_encode(["reply" => $replyText]);
 ?>
