@@ -228,72 +228,231 @@
   </footer>
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
     "use strict";
-    const $ = (s, r=document) => r.querySelector(s);
-    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-    // --- Mobile Menu, Hero Audio, Animations ---
-    const mmBtn = $('#mobile-menu-button'), panel = $('#mobile-menu'), closeX = $('#mobile-menu-close');
+    // --- 1. Utility Helpers ---
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+    // --- 2. UI: Mobile Menu, Animations, Footer Year ---
+    const mmBtn = $('#mobile-menu-button');
+    const panel = $('#mobile-menu');
+    const closeX = $('#mobile-menu-close');
+
     if (mmBtn && panel && closeX) {
-        mmBtn.addEventListener('click', () => panel.classList.add('is-open'));
-        closeX.addEventListener('click', () => panel.classList.remove('is-open'));
+        mmBtn.addEventListener('click', () => panel.classList.remove('hidden'));
+        closeX.addEventListener('click', () => panel.classList.add('hidden'));
     }
-    const io = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-    $$('.fade-in').forEach(el => io.observe(el));
-    const y=$('#bvYear');if(y)y.textContent=new Date().getFullYear();
-    const vid=$('#homeHeroVideo'), mute=$('#homeHeroMuteBtn'), vol=$('#homeHeroVolume');
-    if(vid&&mute&&vol){const W=.18; (async()=>{try{vid.volume=W; vol.value=W; vid.muted=false;await vid.play();mute.textContent='🔊 Mute';}catch{try{vid.muted=true;await vid.play();mute.textContent='🔈 Unmute';}catch{}}})();mute.addEventListener('click',()=>{vid.muted=!vid.muted;mute.textContent=vid.muted?'🔈 Unmute':'🔊 Mute';if(!vid.muted&&vid.volume===0){vid.volume=W;vol.value=W;}vid.play().catch(()=>{});});vol.addEventListener('input',()=>{const v=parseFloat(vol.value);vid.volume=v;if(v>0&&vid.muted){vid.muted=false;mute.textContent='🔊 Mute';vid.play().catch(()=>{});}});}
 
-    // --- ENHANCED GALLERY: Coverflow Effect ---
-    new Swiper('.gallery-slider', {
-      effect: 'coverflow', grabCursor: true, centeredSlides: true,
-      slidesPerView: 'auto', loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true, },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    });
+    // Scroll Fade-in Animation
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
 
-    // --- Original BRIA Chatbot Logic ---
-    const list=$('#chatMessages'), input=$('#chatInput'), send=$('#chatSend');
-    if(list && input && send){
-      const chatEndpoint = '/api/chat'; // Using relative path for robustness
-      function bubble(text, who){ const w=document.createElement('div'); w.className='flex '+(who==='user'?'justify-end':'justify-start'); const b=document.createElement('div'); b.className=(who==='user'?'bg-amber-400 text-black':'bg-[#1e293b] text-white')+' rounded-lg px-4 py-2 max-w-lg'; b.innerHTML=text.replace(/\n/g,'<br>'); w.appendChild(b); list.appendChild(w); list.scrollTop=list.scrollHeight; return b; }
-      bubble("Hello! I'm BRIA. How can I help?",'ai');
-      async function sendMsg(){ const text=input.value.trim();if(!text)return;bubble(text,'user');input.value='';const t=bubble('Thinking…','ai');try{const r=await fetch(chatEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:text}]})});if(!r.ok)throw new Error();const d=await r.json();t.innerHTML=d.reply.replace(/\n/g,'<br>')||"Sorry, I couldn't process that.";}catch(e){t.textContent='Network error contacting AI.';}}
-      send.addEventListener('click',sendMsg);
-      input.addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+    $$('.fade-in').forEach(el => observer.observe(el));
+
+    // Dynamic Year
+    const yearEl = $('#bvYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+
+    // --- 3. Hero Video Logic (Auto-play & Mute Toggle) ---
+    const vid = $('#homeHeroVideo');
+    const muteBtn = $('#homeHeroMuteBtn');
+    const volSlider = $('#homeHeroVolume');
+
+    if (vid && muteBtn && volSlider) {
+        const defaultVol = 0.18;
+
+        // Attempt Auto-play
+        (async () => {
+            try {
+                vid.volume = defaultVol;
+                volSlider.value = defaultVol;
+                vid.muted = false;
+                await vid.play();
+                muteBtn.textContent = '🔊 Mute';
+            } catch (err) {
+                // Fallback: Muted Autoplay (Browsers often block unmuted autoplay)
+                try {
+                    vid.muted = true;
+                    await vid.play();
+                    muteBtn.textContent = '🔈 Unmute';
+                } catch (e) {
+                    console.log("Autoplay blocked completely");
+                }
+            }
+        })();
+
+        // Mute Button Handler
+        muteBtn.addEventListener('click', () => {
+            vid.muted = !vid.muted;
+            muteBtn.textContent = vid.muted ? '🔈 Unmute' : '🔊 Mute';
+            if (!vid.muted && vid.volume === 0) {
+                vid.volume = defaultVol;
+                volSlider.value = defaultVol;
+            }
+            vid.play().catch(() => {});
+        });
+
+        // Volume Slider Handler
+        volSlider.addEventListener('input', () => {
+            const val = parseFloat(volSlider.value);
+            vid.volume = val;
+            if (val > 0 && vid.muted) {
+                vid.muted = false;
+                muteBtn.textContent = '🔊 Mute';
+                vid.play().catch(() => {});
+            }
+        });
     }
-    
-    // --- NEW: GEMINI API DASHBOARD LOGIC ---
-    const geminiEndpoint = '/api/gemini';
 
-    async function getGeminiResponse(prompt, targetElement, buttonElement) {
-        targetElement.innerHTML = 'Generating...';
-        buttonElement.disabled = true;
+
+    // --- 4. Gallery: Swiper with Coverflow Effect ---
+    if ($('.gallery-slider')) {
+        new Swiper('.gallery-slider', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false
+            },
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    }
+
+
+    // --- 5. Chatbot Logic (Connected to chat.php) ---
+    const chatList = $('#chatMessages');
+    const chatInput = $('#chatInput');
+    const chatSend = $('#chatSend');
+
+    if (chatList && chatInput && chatSend) {
+        const chatEndpoint = './chat.php'; // Updated to point to your PHP file
+
+        function createBubble(text, type) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'} mb-2`;
+            
+            const bubble = document.createElement('div');
+            bubble.className = (type === 'user' ? 'bg-amber-400 text-black' : 'bg-[#1e293b] text-white') + 
+                               ' rounded-lg px-4 py-2 max-w-lg shadow-md';
+            bubble.innerHTML = text.replace(/\n/g, '<br>');
+            
+            wrapper.appendChild(bubble);
+            chatList.appendChild(wrapper);
+            chatList.scrollTop = chatList.scrollHeight;
+            return bubble;
+        }
+
+        // Initial Greeting
+        createBubble("Hello! I'm BRIA. How can I help?", 'ai');
+
+        async function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            createBubble(text, 'user');
+            chatInput.value = '';
+            const loadingBubble = createBubble('Thinking...', 'ai');
+
+            try {
+                const res = await fetch(chatEndpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    // Adjusted payload to match chat.php expectations
+                    body: JSON.stringify({ message: text }) 
+                });
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                
+                const data = await res.json();
+                loadingBubble.innerHTML = (data.reply || "Sorry, I couldn't process that.").replace(/\n/g, '<br>');
+            } catch (err) {
+                loadingBubble.textContent = '⚠️ Network error. Please check your connection.';
+                console.error(err);
+            }
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    }
+
+
+    // --- 6. Gemini Dashboard Logic ---
+    // Note: You will need a separate 'gemini.php' file for this to work, 
+    // or you can point this to 'chat.php' if you modify it to handle prompts.
+    const geminiEndpoint = './chat.php'; 
+
+    async function fetchGeminiInsight(prompt, resultEl, btnEl) {
+        const originalText = btnEl.textContent;
+        btnEl.disabled = true;
+        btnEl.textContent = "Loading...";
+        resultEl.innerHTML = '<span class="animate-pulse">Analyzing data...</span>';
+
         try {
             const response = await fetch(geminiEndpoint, {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt })
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: prompt }) // Using 'message' to reuse chat.php
             });
+
             if (!response.ok) throw new Error(`Server error: ${response.status}`);
+            
             const data = await response.json();
-            targetElement.innerHTML = data.reply.replace(/\n/g, '<br>');
+            resultEl.innerHTML = data.reply.replace(/\n/g, '<br>');
         } catch (error) {
-            targetElement.innerHTML = 'Sorry, an error occurred while fetching insights.';
+            resultEl.innerHTML = '<span class="text-red-400">Error fetching insights.</span>';
         } finally {
-            buttonElement.disabled = false;
+            btnEl.disabled = false;
+            btnEl.textContent = originalText;
         }
     }
 
-    const marketBtn = $('#market-snapshot-btn'), marketResult = $('#market-snapshot-result');
-    if (marketBtn) marketBtn.addEventListener('click', () => getGeminiResponse("Using Google Search, provide a brief, one-paragraph market snapshot of the current logistics and trade news in Myanmar.", marketResult, marketBtn));
+    // Market Snapshot Widget
+    const marketBtn = $('#market-snapshot-btn');
+    const marketResult = $('#market-snapshot-result');
+    if (marketBtn && marketResult) {
+        marketBtn.addEventListener('click', () => {
+            const prompt = "Provide a brief, professional one-paragraph market snapshot of current logistics and trade trends in Myanmar.";
+            fetchGeminiInsight(prompt, marketResult, marketBtn);
+        });
+    }
 
-    const docBtn = $('#doc-helper-btn'), docResult = $('#doc-helper-result'), docSelector = $('#doc-selector');
-    if (docBtn) docBtn.addEventListener('click', () => getGeminiResponse(`Explain what a "${docSelector.value}" is in the context of international trade. Keep it simple and clear, in about two or three sentences.`, docResult, docBtn));
-  });
-  </script>
+    // Document Helper Widget
+    const docBtn = $('#doc-helper-btn');
+    const docResult = $('#doc-helper-result');
+    const docSelector = $('#doc-selector');
+    if (docBtn && docResult && docSelector) {
+        docBtn.addEventListener('click', () => {
+            const docName = docSelector.value;
+            const prompt = `Explain what a "${docName}" is in international trade. Keep it simple, clear, and under 3 sentences.`;
+            fetchGeminiInsight(prompt, docResult, docBtn);
+        });
+    }
+
+});
+</script>
 </body>
 </html>
 
